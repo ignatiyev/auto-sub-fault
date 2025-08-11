@@ -1,0 +1,121 @@
+# 1. Clean data
+depth_distance_df = depth_distance_df.dropna(subset=['distance', 'depth'])
+depth_distance_df_cleaned = depth_distance_df.query("depth != -19").copy()
+X_raw = depth_distance_df_cleaned['distance'].values.reshape(-1, 1)
+y_raw = depth_distance_df_cleaned['depth'].values
+
+# 2. Pre-filtering of crustal earthquakes
+def filter_crustal_earthquakes(distance, depth, max_shallow_depth, min_distance_for_filter):
+    return ~((depth > max_shallow_depth) & (distance > min_distance_for_filter))
+
+crustal_mask = filter_crustal_earthquakes(X_raw.flatten(), y_raw, max_shallow_depth=-60, min_distance_for_filter=200)
+X_filtered = X_raw[crustal_mask]
+y_filtered = y_raw[crustal_mask]
+
+print(f"Removed {len(X_raw) - len(X_filtered)} crustal earthquakes initially")
+
+# 3. Standardize
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X_filtered)
+mu_X, sigma_X = scaler.mean_[0], scaler.scale_[0]
+y_mean, y_std = y_filtered.mean(), y_filtered.std()
+y_scaled = (y_filtered - y_mean) / y_std
+
+# 4. Polynomial transform
+degree = 3
+poly = PolynomialFeatures(degree=degree, include_bias=False)
+X_poly = poly.fit_transform(X_scaled)
+
+# 5. Pre-Huber regression
+param_grid = {'epsilon': uniform(1, 2), 'alpha': uniform(0.0001, 0.01), 'max_iter': [100, 300, 500]}
+search = RandomizedSearchCV(HuberRegressor(), param_grid, n_iter=20, cv=5, random_state=42)
+search.fit(X_poly, y_scaled)
+
+model_v1 = HuberRegressor(**search.best_params_)
+model_v1.fit(X_poly, y_scaled)
+
+# 6. Predict on smooth linspace for the first model
+X_fit = np.linspace(X_filtered.min(), X_filtered.max(), 200).reshape(-1, 1)
+X_fit_scaled = (X_fit - mu_X) / sigma_X
+X_fit_poly = poly.transform(X_fit_scaled)
+y_fit_scaled_v1 = model_v1.predict(X_fit_poly)
+y_fit_v1 = y_fit_scaled_v1 * y_std + y_mean
+
+# 7. Second filtering: Remove points above the first Huber line
+def filter_by_huber_line(distance, depth, model, scaler, poly, mu_X, sigma_X, y_mean, y_std, buffer=50, depth_threshold=-70):
+    # For deep earthquakes we do not use filtration
+    deep_earthquake_mask = depth <= depth_threshold
+    # For the remaining points we apply line filtering
+    X = distance.reshape(-1, 1)
+    X_scaled = (X - mu_X) / sigma_X
+    X_poly_transformed = poly.transform(X_scaled)
+    y_pred_scaled = model.predict(X_poly_transformed)
+    y_pred = y_pred_scaled * y_std + y_mean
+    above_line_mask = depth <= (y_pred + buffer)
+    return deep_earthquake_mask | above_line_mask
+
+# Apply second filtering to the original data
+improved_mask = filter_by_huber_line(X_raw.flatten(), y_raw, model_v1, scaler, poly, mu_X, sigma_X, y_mean, y_std)
+X_filtered_v2 = X_raw[improved_mask]
+y_filtered_v2 = y_raw[improved_mask]
+
+print(f"After improved filtering: removed {len(X_raw) - len(X_filtered_v2)} earthquakes")
+
+# 8. Final Huber regression
+scaler_v2 = StandardScaler()
+X_scaled_v2 = scaler_v2.fit_transform(X_filtered_v2)
+mu_X_v2, sigma_X_v2 = scaler_v2.mean_[0], scaler_v2.scale_[0]
+y_mean_v2, y_std_v2 = y_filtered_v2.mean(), y_filtered_v2.std()
+y_scaled_v2 = (y_filtered_v2 - y_mean_v2) / y_std_v2
+
+poly_v2 = PolynomialFeatures(degree=degree, include_bias=False)
+X_poly_v2 = poly_v2.fit_transform(X_scaled_v2)
+
+search_v2 = RandomizedSearchCV(HuberRegressor(), param_grid, n_iter=20, cv=5, random_state=42)
+search_v2.fit(X_poly_v2, y_scaled_v2)
+
+model_v2 = HuberRegressor(**search_v2.best_params_)
+model_v2.fit(X_poly_v2, y_scaled_v2)
+
+# Predict for final visualization
+X_fit_v2 = np.linspace(X_filtered_v2.min(), X_filtered_v2.max(), 200).reshape(-1, 1)
+X_fit_scaled_v2 = (X_fit_v2 - mu_X_v2) / sigma_X_v2
+X_fit_poly_v2 = poly_v2.transform(X_fit_scaled_v2)
+y_fit_scaled_v2 = model_v2.predict(X_fit_poly_v2)
+y_fit_v2 = y_fit_scaled_v2 * y_std_v2 + y_mean_v2
+
+# 9. Plot comparison
+plt.figure(figsize=(15, 5))
+
+# Before filtering
+plt.subplot(1, 3, 1)
+plt.scatter(X_raw, y_raw, color='blue', s=5, alpha=0.5)
+plt.plot(X_fit, y_fit_v1, color='red', linewidth=2, label='First Huber Fit')
+plt.title('Before Filtering')
+plt.xlabel('Distance from Trench (km)')
+plt.ylabel('Depth (km)')
+plt.grid(True)
+plt.legend(loc='lower left')
+
+# After first filtering and Huber regression
+plt.subplot(1, 3, 2)
+plt.scatter(X_filtered, y_filtered, color='blue', s=5, alpha=0.5, label='Filtered data')
+plt.plot(X_fit, y_fit_v1, color='red', linewidth=2, label='First Huber Fit')
+plt.title('After First Filtering + Huber Regression')
+plt.xlabel('Distance from Trench (km)')
+plt.ylabel('Depth (km)')
+plt.grid(True)
+plt.legend(loc='lower left')
+
+# Final result
+plt.subplot(1, 3, 3)
+plt.scatter(X_filtered_v2, y_filtered_v2, color='blue', s=5, alpha=0.5, label='Final data')
+plt.plot(X_fit_v2, y_fit_v2, color='red', linewidth=2, label='Final Huber Fit')
+plt.title('Final Result')
+plt.xlabel('Distance from Trench (km)')
+plt.ylabel('Depth (km)')
+plt.grid(True)
+plt.legend(loc='lower left')
+
+plt.tight_layout()
+plt.show()

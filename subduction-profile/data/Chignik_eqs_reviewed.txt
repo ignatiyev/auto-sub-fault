@@ -1,0 +1,331 @@
+International Seismological Centre
+ISC: Event catalogue
+Any use of data from the ISC should be cited. The correct format for citations may be found on our citation page.
+
+Once the search has completed, a compressed KML file will be available to view the results in Google Earth.
+
+Sorry a problem has occured with the map.
+Search summary:
+Database: Reviewed ISC Bulletin
+Search type: Rectangular search
+Latitude range: 53.7 to 59.36
+Longitude range: -162.98 to -154
+Start date: 2021-07-29 05:00:00
+End date: 2021-09-29 06:15:49
+Events found: 281
+Date of search: Sat Jun 14 23:27:29 2025 GMT
+Agencies whose data contributed towards the results of this search are listed at the bottom of the page.
+
+
+
+DATA_TYPE EVENT_CATALOGUE
+Reviewed ISC Bulletin
+----EVENT-----|-----------------------ORIGIN (PRIME HYPOCENTRE)----------------|------MAGNITUDES-----...
+  EVENTID,TYPE,AUTHOR   ,DATE      ,TIME       ,LAT     ,LON      ,DEPTH,DEPFIX,AUTHOR   ,TYPE  ,MAG 
+620857937,ke  ,ISC      ,2021-07-29,06:15:47.49, 55.4449,-157.9970, 22.0,      ,ISC      ,mb    , 7.0,ISC      ,MS    , 8.2,BJI      ,mb    , 6.9,BJI      ,mB    , 7.7,BJI      ,Ms    , 8.1,BJI      ,Ms7   , 8.1,IDC      ,mb    , 6.2,IDC      ,mbtmp , 6.2,IDC      ,ML    , 4.9,IDC      ,MS    , 7.9,BGR      ,mb    , 7.0,BGR      ,mB_BB , 8.0,BGR      ,Ms    , 7.7,PTWC     ,Mwp   , 7.4,MOS      ,mb    , 7.2,MOS      ,MS    , 7.9,NEIC     ,mb    , 7.1,NEIC     ,ML    , 7.2,NEIC     ,Ms_20 , 8.3,AEIC     ,ML    , 7.1,IPGP     ,Mw    , 8.1,GFZ      ,M     , 7.9,GFZ      ,mb    , 6.9,GFZ      ,mB    , 7.8,GFZ      ,Mw(mB), 8.0,GFZ      ,Mwp   , 7.5,GFZ      ,Mw    , 8.2,CATAC    ,M     , 7.7,CATAC    ,mb    , 6.6,CATAC    ,mB    , 7.6,CATAC    ,MLv   , 8.0,CATAC    ,Mw(mB), 7.7,CATAC    ,MwMwp , 7.6,CATAC    ,Mwp   , 7.3,GCMT     ,MW    , 8.2,NEIC     ,Mwc   , 8.1,NEIC     ,Mww   , 8.2
+622450816,se  ,ISC      ,2021-07-29,06:19:21.75, 55.0062,-158.1592,  2.3,      ,ISC      ,mb    , 6.2,NEIC     ,mb    , 6.1,NEIC     ,ML    , 6.0,AEIC     ,ML    , 5.5
+622450817,se  ,NEIC     ,2021-07-29,06:20:44.45, 55.2218,-157.7952, 35.0,TRUE  ,NEIC     ,ML    , 5.1,
+626337071,se  ,ISC      ,2021-07-29,06:23:01.82, 55.8975,-157.1073, 35.0,TRUE  ,ISC      ,mb    , 5.4,IDC      ,mb    , 5.0,IDC      ,mbtmp , 5.0,IDC      ,ML    , 4.4,NEIC     ,mb    , 5.7,NEIC     ,ML    , 5.8
+620984038,ke  ,ISC      ,2021-07-29,06:23:28.91, 55.3832,-157.5350, 28.3,      ,ISC      ,mb    , 6.2,IDC      ,mb    , 6.0,IDC      ,mbtmp , 5.9,IDC      ,ML    , 5.1,BJI      ,mb    , 6.2,MOS      ,mb    , 6.5,NEIC     ,mb    , 6.3,NEIC     ,ML    , 6.0,AEIC     ,ML    , 5.9,GFZ      ,mb    , 6.3,BGR      ,mb    , 5.9
+622450818,se  ,NEIC     ,2021-07-29,06:27:01.58, 55.2515,-156.7531, 26.6,      ,NEIC     ,mb    , 5.1,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.2,
+620984040,se  ,ISC      ,2021-07-29,06:28:18.76, 55.4048,-157.3540, 16.6,      ,ISC      ,mb    , 4.8,IDC      ,mb    , 4.7,IDC      ,mbtmp , 4.7,IDC      ,ML    , 4.0,NEIC     ,mb    , 5.2,NEIC     ,ML    , 4.7,AEIC     ,ML    , 4.5
+620984043,se  ,ISC      ,2021-07-29,06:28:50.35, 55.1942,-157.5373, 35.0,TRUE  ,ISC      ,mb    , 5.0,IDC      ,mb    , 4.8,IDC      ,mbtmp , 4.8,IDC      ,ML    , 4.3,NEIC     ,mb    , 5.3,NEIC     ,ML    , 4.8
+620857940,se  ,NEIC     ,2021-07-29,06:31:32.39, 55.2379,-157.6230,  6.7,      ,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.8,AEIC     ,ML    , 3.9,
+622450820,ke  ,ISC      ,2021-07-29,06:32:33.08, 55.2831,-156.8219, 13.9,      ,ISC      ,mb    , 5.7,MOS      ,mb    , 6.0,BJI      ,mb    , 5.8,IDC      ,mb    , 5.6,IDC      ,mbtmp , 5.5,IDC      ,ML    , 5.1,NEIC     ,mb    , 5.7,NEIC     ,ML    , 5.5,AEIC     ,ML    , 5.4,GFZ      ,mb    , 5.8,BGR      ,mb    , 5.5
+622450822,se  ,NEIC     ,2021-07-29,06:35:12.45, 55.5231,-157.8354, 22.2,      ,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.2,
+620984044,se  ,NEIC     ,2021-07-29,06:36:02.94, 55.2304,-157.4213, 19.6,      ,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.5,AEIC     ,ML    , 4.5,
+622450823,se  ,ISC      ,2021-07-29,06:37:02.91, 55.6286,-156.8186, 35.0,TRUE  ,ISC      ,mb    , 4.3,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.1
+620984045,se  ,ISC      ,2021-07-29,06:38:22.74, 55.3655,-156.8848, 20.0,TRUE  ,ISC      ,mb    , 4.7,IDC      ,mb    , 4.5,IDC      ,mbtmp , 4.5,IDC      ,ML    , 4.2,NEIC     ,mb    , 5.1,NEIC     ,ML    , 4.5,AEIC     ,ML    , 4.3
+620984048,se  ,ISC      ,2021-07-29,06:39:15.17, 55.0205,-157.0084, 24.0,TRUE  ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 4.1,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.4
+620984050,se  ,ISC      ,2021-07-29,06:42:41.77, 55.7928,-155.3304, 10.0,TRUE  ,ISC      ,mb    , 4.1,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.4,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.0
+620984051,se  ,NEIC     ,2021-07-29,06:43:11.72, 55.4583,-156.9983, 33.8,      ,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.2,AEIC     ,ML    , 3.7,
+621112318,se  ,ISC      ,2021-07-29,06:44:03.48, 55.4058,-155.4420, 10.0,TRUE  ,ISC      ,mb    , 4.3,NEIC     ,mb    , 4.7,NEIC     ,ML    , 4.2,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 4.1
+620984052,se  ,ISC      ,2021-07-29,06:45:08.81, 55.0684,-157.6701,  5.1,      ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.6,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.5,AEIC     ,ML    , 4.5
+620857942,se  ,ISC      ,2021-07-29,06:47:25.42, 55.1830,-157.7436, 27.6,      ,ISC      ,mb    , 5.0,IDC      ,mb    , 4.8,IDC      ,mbtmp , 4.8,IDC      ,ML    , 4.8,MOS      ,mb    , 5.3,NEIC     ,mb    , 5.2,NEIC     ,ML    , 4.9,AEIC     ,ML    , 4.8
+622450826,se  ,NEIC     ,2021-07-29,06:50:07.02, 55.2598,-156.3979, 10.0,TRUE  ,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7,
+620984053,se  ,ISC      ,2021-07-29,06:53:26.31, 55.4858,-156.7405, 37.4,      ,ISC      ,mb    , 4.1,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.1,IDC      ,ML    , 3.7,NEIC     ,mb    , 3.8,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.2
+622450830,se  ,NEIC     ,2021-07-29,06:54:19.28, 55.0835,-158.4629, 32.5,      ,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.7,
+620984054,se  ,ISC      ,2021-07-29,06:57:02.46, 55.3071,-157.0356, 14.9,      ,ISC      ,mb    , 4.6,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.9,NEIC     ,ML    , 4.4,AEIC     ,ML    , 4.3
+620984055,se  ,ISC      ,2021-07-29,06:58:50.12, 55.4801,-156.3885, 10.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.9,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.5,NEIC     ,mb    , 3.9,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8
+622450833,se  ,NEIC     ,2021-07-29,07:09:39.39, 55.0180,-158.0837, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.0,
+620984056,se  ,ISC      ,2021-07-29,07:11:27.28, 55.1437,-158.5110, 30.0,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+622450834,se  ,NEIC     ,2021-07-29,07:13:02.80, 55.2985,-156.7444, 13.2,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3,
+620984057,se  ,ISC      ,2021-07-29,07:15:46.80, 55.3999,-156.3916, 10.0,TRUE  ,ISC      ,mb    , 3.5,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.1
+622450835,se  ,NEIC     ,2021-07-29,07:18:05.36, 55.0113,-158.1709, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,
+622450836,se  ,NEIC     ,2021-07-29,07:20:03.09, 55.0224,-158.1178, 35.0,TRUE  ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,
+620984059,se  ,ISC      ,2021-07-29,07:21:11.10, 55.5523,-156.5651, 10.0,TRUE  ,ISC      ,mb    , 4.0,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.3
+620984062,se  ,ISC      ,2021-07-29,07:22:11.74, 55.4570,-156.9586, 31.7,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.4,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1
+620984063,se  ,ISC      ,2021-07-29,07:27:09.96, 55.1316,-158.2982, 16.2,      ,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.2,IDC      ,mb    , 3.0,IDC      ,mbtmp , 3.2,IDC      ,ML    , 3.4
+620984064,se  ,ISC      ,2021-07-29,07:29:39.49, 55.3396,-156.2193, 10.0,TRUE  ,ISC      ,mb    , 3.6,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.3
+620984068,se  ,ISC      ,2021-07-29,07:31:14.36, 55.2912,-156.7974, 20.0,TRUE  ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.7,NEIC     ,ML    , 4.5,AEIC     ,ML    , 4.3
+620984069,se  ,ISC      ,2021-07-29,07:32:33.50, 55.1560,-157.6053,  8.5,      ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.4,NEIC     ,ML    , 4.7,AEIC     ,ML    , 4.5
+622450838,se  ,NEIC     ,2021-07-29,07:34:06.96, 55.5409,-157.7240, 35.0,TRUE  ,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9,
+622450843,se  ,NEIC     ,2021-07-29,07:38:59.21, 55.1346,-156.8863, 20.0,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.1,
+622450849,se  ,NEIC     ,2021-07-29,07:44:20.67, 54.9895,-157.8330, 31.7,      ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.8,
+622450850,se  ,NEIC     ,2021-07-29,07:46:33.65, 54.7812,-158.2082, 20.1,      ,NEIC     ,mb    , 3.9,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.8,
+622450851,se  ,NEIC     ,2021-07-29,07:47:23.57, 57.2298,-156.7437, 14.1,      ,NEIC     ,ML    , 3.0,AEIC     ,ML    , 2.5,
+620857946,se  ,ISC      ,2021-07-29,07:50:00.60, 55.4233,-157.4939, 33.2,      ,ISC      ,mb    , 4.7,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.2,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.4,GFZ      ,M     , 4.9,GFZ      ,mb    , 4.9
+620984070,se  ,ISC      ,2021-07-29,07:51:41.99, 55.2148,-157.6486, 35.0,TRUE  ,ISC      ,mb    , 4.1,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 4.2,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.4,AEIC     ,ML    , 3.6
+620984071,se  ,ISC      ,2021-07-29,07:54:34.07, 55.6412,-156.5774,  5.5,      ,ISC      ,mb    , 3.7,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.7,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7
+620984072,se  ,ISC      ,2021-07-29,07:58:26.54, 55.2044,-157.6254, 27.8,      ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.3,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+620984075,se  ,ISC      ,2021-07-29,07:58:50.64, 55.3310,-157.8063, 32.0,TRUE  ,ISC      ,mb    , 4.0,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.1,NEIC     ,ML    , 4.2
+620984076,se  ,ISC      ,2021-07-29,08:02:55.71, 55.1571,-157.6124, 27.8,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.2,NEIC     ,ML    , 4.0,AEIC     ,ML    , 3.9
+622450853,se  ,NEIC     ,2021-07-29,08:05:28.94, 54.9529,-158.0809, 19.2,      ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 2.7,
+622450854,se  ,NEIC     ,2021-07-29,08:06:39.07, 55.3750,-156.9230, 35.0,TRUE  ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.0,
+620859555,se  ,ISC      ,2021-07-29,08:08:55.19, 55.3296,-157.0190, 20.0,TRUE  ,ISC      ,mb    , 3.5,NEIC     ,mb    , 3.9,NEIC     ,ML    , 4.1,AEIC     ,ML    , 4.1,IDC      ,mb    , 3.3,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.4
+620984079,se  ,ISC      ,2021-07-29,08:09:42.48, 55.2232,-157.1827, 10.2,      ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.8,AEIC     ,ML    , 4.6
+622450855,se  ,NEIC     ,2021-07-29,08:12:27.32, 55.6997,-157.0892,  8.1,      ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.0,
+622450858,se  ,NEIC     ,2021-07-29,08:12:58.17, 55.2302,-157.5887, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,
+622450861,se  ,NEIC     ,2021-07-29,08:13:35.89, 54.8268,-156.5869, 10.0,TRUE  ,NEIC     ,ML    , 3.5,
+622450862,se  ,NEIC     ,2021-07-29,08:13:56.65, 55.1768,-158.5844, 25.9,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.2,
+620857947,se  ,ISC      ,2021-07-29,08:15:17.10, 55.3535,-156.8572, 11.8,      ,ISC      ,mb    , 3.7,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.4,AEIC     ,ML    , 4.2,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.8
+620984081,se  ,ISC      ,2021-07-29,08:15:48.65, 55.3214,-156.9981, 32.0,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.4,AEIC     ,ML    , 4.2
+620984083,se  ,ISC      ,2021-07-29,08:17:15.88, 54.7305,-157.8396, 35.0,TRUE  ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.8,IDC      ,ML    , 4.3,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.4
+620859556,se  ,NEIC     ,2021-07-29,08:24:55.35, 55.3082,-157.4162, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+622450864,se  ,ISC      ,2021-07-29,08:25:20.20, 55.5540,-156.1741, 19.0,TRUE  ,ISC      ,mb    , 4.4,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.7,NEIC     ,ML    , 4.5,AEIC     ,ML    , 4.3
+620929502,se  ,ISC      ,2021-07-29,08:32:47.84, 55.4181,-156.4048, 10.0,TRUE  ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.1,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8
+622450867,se  ,NEIC     ,2021-07-29,08:34:16.23, 55.2821,-156.2605, 34.4,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+622450871,se  ,NEIC     ,2021-07-29,08:38:51.88, 55.4688,-157.3586, 32.8,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5,
+620968023,se  ,ISC      ,2021-07-29,08:40:15.40, 55.1757,-157.2810, 15.6,      ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 4.1,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1
+620984085,se  ,NEIC     ,2021-07-29,08:54:47.18, 55.0391,-157.5546, 30.1,      ,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8,
+622450873,se  ,ISC      ,2021-07-29,08:55:24.13, 55.1173,-157.5690, 24.4,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.0,AEIC     ,ML    , 3.8
+622450875,se  ,NEIC     ,2021-07-29,08:56:45.22, 55.2454,-157.0628, 29.2,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,
+620984086,se  ,ISC      ,2021-07-29,08:57:47.69, 55.1070,-157.4846, 35.0,TRUE  ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6
+622450877,se  ,NEIC     ,2021-07-29,09:07:55.20, 54.8866,-158.0243, 25.9,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3,
+622450878,se  ,NEIC     ,2021-07-29,09:13:04.00, 55.1754,-155.6325, 20.5,      ,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.1,
+622450880,se  ,NEIC     ,2021-07-29,09:17:02.99, 54.5901,-156.7465, 31.4,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,
+620984087,se  ,ISC      ,2021-07-29,09:22:51.22, 55.1298,-157.0049, 24.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.9,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5
+622450881,se  ,NEIC     ,2021-07-29,09:26:08.00, 55.4379,-155.9007, 35.0,TRUE  ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.0,
+620859558,se  ,ISC      ,2021-07-29,09:28:22.43, 55.4244,-157.6015, 26.0,      ,ISC      ,mb    , 4.9,IDC      ,mb    , 4.7,IDC      ,mbtmp , 4.7,IDC      ,ML    , 4.2,GFZ      ,M     , 5.7,GFZ      ,mb    , 5.1,BJI      ,mb    , 5.1,MOS      ,mb    , 5.3,NEIC     ,mb    , 4.9,NEIC     ,ML    , 5.0,AEIC     ,ML    , 4.7
+620984089,se  ,NEIC     ,2021-07-29,09:37:34.43, 55.1855,-157.8301, 10.0,TRUE  ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5,
+622450884,se  ,ISC      ,2021-07-29,09:38:08.99, 55.5877,-157.0245, 20.0,TRUE  ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.8,IDC      ,ML    , 4.1,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3
+622450886,se  ,NEIC     ,2021-07-29,09:43:17.79, 55.0644,-157.3987, 29.6,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,
+620984090,se  ,ISC      ,2021-07-29,09:44:33.24, 55.6915,-155.7658, 19.0,TRUE  ,IDC      ,mb    , 3.1,IDC      ,mbtmp , 3.2,IDC      ,ML    , 3.6,NEIC     ,ML    , 3.3
+620984091,se  ,ISC      ,2021-07-29,09:52:12.95, 55.4321,-156.3932, 12.7,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.9,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.3
+620859561,se  ,ISC      ,2021-07-29,09:53:42.24, 55.3672,-157.0132, 29.1,      ,ISC      ,mb    , 4.8,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 4.1,GFZ      ,M     , 5.6,GFZ      ,mb    , 4.8,NEIC     ,mb    , 4.9,NEIC     ,ML    , 4.8,AEIC     ,ML    , 4.6
+620859562,se  ,ISC      ,2021-07-29,09:55:19.31, 55.2958,-155.6415, 10.0,TRUE  ,ISC      ,mb    , 4.8,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.0,IDC      ,MS    , 5.6,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.5,GFZ      ,M     , 5.5,GFZ      ,mb    , 5.0
+620925349,se  ,ISC      ,2021-07-29,09:58:25.27, 55.2194,-155.6252, 10.0,TRUE  ,ISC      ,mb    , 4.5,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 4.0
+622450887,se  ,NEIC     ,2021-07-29,10:01:39.80, 55.0169,-157.4669, 30.3,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4,
+620984093,se  ,ISC      ,2021-07-29,10:07:50.77, 55.2024,-157.0793, 24.0,TRUE  ,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.3,IDC      ,ML    , 3.2,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.2
+622450890,se  ,NEIC     ,2021-07-29,10:15:59.97, 54.8523,-158.3555, 19.5,      ,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3,
+620984094,se  ,ISC      ,2021-07-29,10:17:28.13, 55.1084,-158.4652, 15.7,      ,ISC      ,mb    , 3.2,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.3,IDC      ,ML    , 3.0,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.0
+620984096,se  ,ISC      ,2021-07-29,10:22:17.48, 55.4501,-156.9084, 29.2,      ,IDC      ,mb    , 3.1,IDC      ,mbtmp , 3.2,IDC      ,ML    , 3.2,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.2
+622450892,se  ,NEIC     ,2021-07-29,10:24:11.60, 55.1270,-157.2485, 10.0,TRUE  ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3,
+620859564,se  ,ISC      ,2021-07-29,10:26:55.46, 54.8898,-157.0413, 24.0,TRUE  ,ISC      ,mb    , 4.3,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.5,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8
+620984097,se  ,ISC      ,2021-07-29,10:33:21.59, 57.1812,-156.6773,  2.3,      ,ISC      ,mb    , 3.2,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.3,IDC      ,ML    , 3.6,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3
+620984098,se  ,ISC      ,2021-07-29,10:37:55.96, 55.1634,-156.7041, 22.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.1
+620984100,se  ,ISC      ,2021-07-29,11:04:59.12, 55.1358,-157.5355, 35.0,TRUE  ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.7,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6
+620878555,se  ,ISC      ,2021-07-29,11:08:48.09, 55.3747,-157.4386, 35.0,TRUE  ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.3,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.4,AEIC     ,ML    , 4.2
+620984101,se  ,ISC      ,2021-07-29,11:29:19.92, 55.3325,-157.5025, 10.0,TRUE  ,ISC      ,mb    , 3.5,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.7
+620984102,se  ,ISC      ,2021-07-29,11:41:27.89, 55.1107,-157.2110, 24.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.5,NEIC     ,mb    , 4.3,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5
+620984103,se  ,ISC      ,2021-07-29,11:47:55.09, 55.2421,-157.4188, 35.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.7,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5
+620984104,se  ,NEIC     ,2021-07-29,11:55:20.34, 55.1984,-157.3103, 24.6,      ,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.0,
+622450906,se  ,ISC      ,2021-07-29,11:56:02.39, 55.4431,-156.8081, 20.0,TRUE  ,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.2,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.6
+620984105,se  ,ISC      ,2021-07-29,12:17:56.80, 55.1361,-157.5159, 10.0,TRUE  ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.5,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4
+620984106,se  ,ISC      ,2021-07-29,12:23:28.64, 55.5740,-156.7712, 20.0,TRUE  ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5
+620984107,se  ,ISC      ,2021-07-29,12:28:23.84, 55.0902,-157.5346, 35.0,TRUE  ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.6,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7
+620984108,se  ,ISC      ,2021-07-29,12:32:06.39, 55.6720,-156.5603, 31.2,      ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.5,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6
+620878552,se  ,ISC      ,2021-07-29,12:42:42.68, 55.2615,-157.1208, 19.9,      ,ISC      ,mb    , 4.5,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,GFZ      ,M     , 5.6,GFZ      ,mb    , 4.9,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.3
+620984110,se  ,ISC      ,2021-07-29,12:51:50.53, 54.9161,-158.2364, 10.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.8,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4
+620968018,se  ,ISC      ,2021-07-29,13:14:47.67, 54.9987,-157.7221,  1.8,      ,ISC      ,mb    , 4.1,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.1
+620878556,se  ,ISC      ,2021-07-29,13:17:49.05, 55.7402,-156.0291, 29.4,      ,ISC      ,mb    , 4.7,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 3.9,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.7,AEIC     ,ML    , 4.5,GFZ      ,M     , 5.1,GFZ      ,mb    , 4.8
+620984115,se  ,ISC      ,2021-07-29,13:30:12.26, 55.4603,-155.5854, 20.1,      ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.1,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7
+620984116,se  ,ISC      ,2021-07-29,13:48:10.26, 55.1454,-157.0884, 24.0,TRUE  ,ISC      ,mb    , 3.5,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.3,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5
+620984117,se  ,ISC      ,2021-07-29,14:02:03.21, 55.0868,-156.3660, 22.0,TRUE  ,ISC      ,mb    , 3.7,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.5,IDC      ,ML    , 2.9,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+620984120,se  ,ISC      ,2021-07-29,14:02:58.35, 55.3798,-157.2536,  3.4,      ,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.2
+620984121,se  ,NEIC     ,2021-07-29,14:07:41.68, 54.6217,-156.7976, 32.3,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,
+626346625,ke  ,IDC      ,2021-07-29,14:08:09.31, 55.1076,-157.3036,  0.0,TRUE  ,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.5,
+620984122,se  ,ISC      ,2021-07-29,14:15:51.29, 55.5776,-155.6756, 10.0,TRUE  ,ISC      ,mb    , 3.6,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.0,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.3,IDC      ,ML    , 2.7
+622450929,se  ,NEIC     ,2021-07-29,14:47:34.02, 55.3393,-157.8955, 22.0,      ,NEIC     ,ML    , 2.9,AEIC     ,ML    , 2.6,
+622450932,se  ,NEIC     ,2021-07-29,14:48:16.96, 55.1468,-157.3844, 28.0,      ,NEIC     ,ML    , 2.9,AEIC     ,ML    , 3.0,
+622450935,se  ,NEIC     ,2021-07-29,14:56:20.46, 55.4733,-156.2430, 35.0,TRUE  ,NEIC     ,ML    , 2.6,AEIC     ,ML    , 2.8,
+620984123,se  ,ISC      ,2021-07-29,14:57:48.82, 55.2659,-155.6108, 16.2,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6
+622450938,se  ,NEIC     ,2021-07-29,15:11:58.62, 55.3501,-157.1547, 10.0,TRUE  ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.6,
+620984124,se  ,ISC      ,2021-07-29,15:13:14.43, 55.3439,-156.9024, 13.5,      ,ISC      ,mb    , 3.7,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6
+622450939,se  ,NEIC     ,2021-07-29,15:19:15.78, 55.1582,-157.1656, 32.3,      ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.5,
+622450941,se  ,NEIC     ,2021-07-29,15:27:59.34, 55.1148,-157.5253, 30.2,      ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 2.7,
+622450942,se  ,NEIC     ,2021-07-29,15:29:53.63, 54.8849,-158.2819, 17.0,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.2,
+622450943,se  ,NEIC     ,2021-07-29,15:51:57.82, 54.7828,-158.0779, 19.0,      ,NEIC     ,ML    , 3.0,AEIC     ,ML    , 2.4,
+622450946,se  ,NEIC     ,2021-07-29,16:08:01.57, 55.5327,-155.6809, 35.0,TRUE  ,NEIC     ,ML    , 4.7,AEIC     ,ML    , 4.5,
+620878560,se  ,ISC      ,2021-07-29,16:09:09.26, 55.1144,-156.9788, 19.4,      ,ISC      ,mb    , 5.2,ISC      ,MS    , 5.1,MOS      ,mb    , 5.5,MOS      ,MS    , 5.0,NEIC     ,mb    , 5.2,NEIC     ,ML    , 5.4,NEIC     ,Mwr   , 5.3,AEIC     ,ML    , 5.1,IDC      ,mb    , 5.0,IDC      ,mbtmp , 5.0,IDC      ,ML    , 4.5,IDC      ,MS    , 5.0,BJI      ,mb    , 5.3,BJI      ,mB    , 5.5,BJI      ,Ms    , 5.6,BJI      ,Ms7   , 5.4,GFZ      ,M     , 5.2,GFZ      ,mb    , 5.3,GFZ      ,mB    , 5.7,GFZ      ,Mw(mB), 5.2
+622450950,se  ,NEIC     ,2021-07-29,16:28:30.31, 55.3048,-156.6656,  4.0,      ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.0,
+620984127,se  ,ISC      ,2021-07-29,16:37:56.16, 54.8790,-156.9887, 15.9,      ,ISC      ,mb    , 3.8,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.6
+620984128,se  ,ISC      ,2021-07-29,16:59:53.31, 55.3877,-157.5361, 28.0,      ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.0,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.2
+622450956,se  ,NEIC     ,2021-07-29,17:07:24.45, 55.2640,-155.8592, 35.0,TRUE  ,NEIC     ,ML    , 3.5,
+620968015,se  ,NEIC     ,2021-07-29,17:27:13.45, 55.5626,-155.1574, 15.3,      ,NEIC     ,ML    , 4.2,
+622450958,se  ,ISC      ,2021-07-29,17:27:51.35, 55.5924,-156.8287, 19.8,      ,ISC      ,mb    , 4.4,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 3.4,IDC      ,MS    , 3.6,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.0
+622450960,se  ,NEIC     ,2021-07-29,17:33:49.19, 55.3938,-158.3705, 35.0,TRUE  ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 2.8,
+620882983,se  ,ISC      ,2021-07-29,19:11:29.46, 55.5249,-156.8424, 20.0,TRUE  ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.6,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 3.8,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.2
+620984135,se  ,NEIC     ,2021-07-29,19:29:34.93, 55.2393,-157.0369, 20.0,TRUE  ,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5,
+622450974,se  ,ISC      ,2021-07-29,19:29:52.24, 55.0552,-156.2822, 22.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.7,IDC      ,MS    , 3.3,NEIC     ,ML    , 3.7
+620984136,se  ,ISC      ,2021-07-29,19:52:46.44, 55.5084,-155.7379, 10.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.0,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+620968010,se  ,ISC      ,2021-07-29,20:21:06.40, 55.4796,-156.3790, 10.0,TRUE  ,ISC      ,mb    , 4.0,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.5
+620882986,se  ,ISC      ,2021-07-29,20:30:33.80, 55.4702,-156.9603, 30.8,      ,ISC      ,mb    , 5.0,BJI      ,mb    , 5.3,BJI      ,mB    , 5.2,BJI      ,Ms    , 5.5,BJI      ,Ms7   , 5.2,IDC      ,mb    , 4.8,IDC      ,mbtmp , 4.8,IDC      ,ML    , 4.5,NEIC     ,mb    , 5.0,NEIC     ,ML    , 5.1,NEIC     ,Mwr   , 4.7,AEIC     ,ML    , 4.8,GFZ      ,M     , 5.1,GFZ      ,mb    , 5.1
+622450981,se  ,ISC      ,2021-07-29,20:32:41.27, 55.2662,-156.8414, 15.6,      ,ISC      ,mb    , 5.5,ISC      ,MS    , 5.1,BJI      ,mb    , 5.7,BJI      ,mB    , 5.5,BJI      ,Ms    , 5.5,BJI      ,Ms7   , 5.4,MOS      ,mb    , 5.9,MOS      ,MS    , 5.0,IDC      ,mb    , 5.5,IDC      ,mbtmp , 5.4,IDC      ,ML    , 4.4,IDC      ,MS    , 5.0,NEIC     ,mb    , 5.5,NEIC     ,ML    , 5.5,NEIC     ,Ms_20 , 5.2,NEIC     ,Mwb   , 5.5,AEIC     ,ML    , 5.3,GFZ      ,Mw    , 5.5,GFZ      ,M     , 5.5,GFZ      ,mb    , 5.6,GFZ      ,mB    , 5.9,GFZ      ,Mw(mB), 5.5,GCMT     ,MW    , 5.5
+620882991,se  ,ISC      ,2021-07-29,21:00:05.66, 54.9614,-158.0532, 25.8,      ,ISC      ,mb    , 4.7,ISC      ,MS    , 4.7,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.3,IDC      ,MS    , 4.7,BJI      ,mb    , 4.7,BJI      ,mB    , 5.2,BJI      ,Ms    , 5.1,BJI      ,Ms7   , 4.9,NEIC     ,mb    , 4.7,NEIC     ,ML    , 4.9,AEIC     ,ML    , 4.7,GFZ      ,M     , 4.8,GFZ      ,mb    , 4.8
+620984139,se  ,NEIC     ,2021-07-29,21:07:09.94, 55.2047,-157.3419, 10.0,TRUE  ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.2,
+622450985,se  ,ISC      ,2021-07-29,21:07:53.67, 55.1681,-156.9610, 24.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.2,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4
+620984140,se  ,ISC      ,2021-07-29,21:17:43.79, 55.4849,-155.7554, 23.4,      ,ISC      ,mb    , 4.0,ISC      ,MS    , 4.4,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.7,IDC      ,MS    , 4.2
+620883006,se  ,ISC      ,2021-07-29,21:39:14.76, 55.2185,-157.2053, 17.6,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 4.2,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 4.3,IDC      ,MS    , 4.2,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.4
+620882997,se  ,ISC      ,2021-07-29,22:18:27.28, 55.2444,-157.2273, 16.2,      ,ISC      ,mb    , 5.0,ISC      ,MS    , 4.2,BJI      ,mb    , 5.1,BJI      ,mB    , 5.0,BJI      ,Ms    , 4.9,BJI      ,Ms7   , 4.7,IDC      ,mb    , 4.8,IDC      ,mbtmp , 4.8,IDC      ,ML    , 4.7,IDC      ,MS    , 4.2,NEIC     ,mb    , 4.9,NEIC     ,ML    , 5.0,NEIC     ,Mwr   , 4.7,AEIC     ,ML    , 4.8,GFZ      ,M     , 4.9,GFZ      ,mb    , 4.9
+620984148,se  ,ISC      ,2021-07-29,22:55:57.45, 55.4947,-156.5680,  5.6,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.9,IDC      ,ML    , 4.2,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+620883696,se  ,ISC      ,2021-07-29,23:38:13.89, 55.2140,-157.1386, 13.1,      ,ISC      ,mb    , 4.4,ISC      ,MS    , 3.6,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,IDC      ,MS    , 3.6,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.0
+622450996,se  ,NEIC     ,2021-07-30,00:21:33.75, 55.2239,-157.6696, 26.4,      ,NEIC     ,ML    , 2.7,AEIC     ,ML    , 2.7,
+622451003,se  ,NEIC     ,2021-07-30,01:16:16.57, 54.9470,-157.3797, 35.0,TRUE  ,NEIC     ,ML    , 2.6,AEIC     ,ML    , 2.7,
+620968029,se  ,ISC      ,2021-07-30,01:26:30.77, 55.5748,-155.9005,  0.9,      ,ISC      ,mb    , 4.4,ISC      ,MS    , 3.6,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.7,IDC      ,MS    , 3.5,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.3,NEIC     ,Mwr   , 4.2,AEIC     ,ML    , 4.2
+620986036,se  ,ISC      ,2021-07-30,02:55:47.22, 55.0027,-156.3462,  4.0,      ,ISC      ,mb    , 4.1,NEIC     ,mb    , 4.4,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6
+620883706,ke  ,ISC      ,2021-07-30,03:52:14.20, 55.3487,-157.1228, 27.1,      ,ISC      ,mb    , 5.5,ISC      ,MS    , 5.2,IDC      ,mb    , 5.2,IDC      ,mbtmp , 5.1,IDC      ,ML    , 4.5,IDC      ,MS    , 5.1,PTWC     ,Mwp   , 5.4,BJI      ,mb    , 5.5,BJI      ,mB    , 5.6,BJI      ,Ms    , 5.7,BJI      ,Ms7   , 5.5,MOS      ,mb    , 5.8,MOS      ,MS    , 5.0,GFZ      ,M     , 5.5,GFZ      ,mb    , 5.5,GFZ      ,mB    , 5.9,GFZ      ,Mw(mB), 5.5,BGR      ,mb    , 5.5,BGR      ,Ms    , 4.9,NEIC     ,mb    , 5.6,NEIC     ,ML    , 5.5,NEIC     ,Ms_20 , 5.2,NEIC     ,Mwb   , 5.5,NEIC     ,Mwr   , 5.3,GFZ      ,Mw    , 5.4,IPGP     ,Mw    , 5.5,GCMT     ,MW    , 5.5,NEIC     ,Mww   , 5.5
+622451026,se  ,ISC      ,2021-07-30,05:32:12.55, 55.1465,-158.7614, 31.2,      ,ISC      ,mb    , 4.7,ISC      ,MS    , 3.7,IDC      ,mb    , 4.5,IDC      ,mbtmp , 4.5,IDC      ,ML    , 4.4,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.7,NEIC     ,ML    , 4.6,NEIC     ,Mwr   , 4.3,AEIC     ,ML    , 4.4,GFZ      ,M     , 5.0,GFZ      ,mb    , 4.8
+620968033,se  ,ISC      ,2021-07-30,05:40:53.68, 55.1687,-157.0777, 16.4,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,NEIC     ,Mwr   , 4.0,AEIC     ,ML    , 3.8
+620986042,se  ,ISC      ,2021-07-30,05:49:21.53, 55.4069,-156.6919, 28.6,      ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.2,IDC      ,MS    , 3.2,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6
+622451028,se  ,NEIC     ,2021-07-30,06:09:07.75, 54.9513,-157.9027, 32.0,      ,NEIC     ,ML    , 2.2,AEIC     ,ML    , 2.5,
+620968032,se  ,ISC      ,2021-07-30,06:46:16.12, 55.6131,-155.7496, 11.7,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.4,IDC      ,MS    , 3.5,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.7
+622451034,se  ,ISC      ,2021-07-30,07:24:39.43, 55.1958,-156.5037, 22.0,TRUE  ,ISC      ,mb    , 4.8,ISC      ,MS    , 3.9,IDC      ,mb    , 4.7,IDC      ,mbtmp , 4.6,IDC      ,ML    , 4.3,IDC      ,MS    , 3.9,NEIC     ,mb    , 4.8,NEIC     ,ML    , 4.6,NEIC     ,Mwr   , 4.6,AEIC     ,ML    , 4.4,GFZ      ,M     , 4.8,GFZ      ,mb    , 4.8
+620883722,se  ,ISC      ,2021-07-30,07:49:12.85, 55.4452,-157.2634, 25.2,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.4,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 3.6,IDC      ,MS    , 3.4,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1
+620986048,se  ,ISC      ,2021-07-30,07:56:01.03, 53.9862,-157.3254, 35.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.5,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.4
+620986049,se  ,ISC      ,2021-07-30,07:57:39.42, 55.2051,-157.1115, 30.0,      ,ISC      ,mb    , 3.4,IDC      ,mb    , 3.3,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.8,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.5
+622451037,se  ,NEIC     ,2021-07-30,08:39:48.11, 55.0382,-156.9377, 33.1,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,
+620912098,se  ,ISC      ,2021-07-30,09:58:04.23, 55.1846,-157.6068, 16.5,      ,ISC      ,mb    , 4.3,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.1,IDC      ,ML    , 3.6,IDC      ,MS    , 3.3,NEIC     ,mb    , 4.4,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.0
+620913668,se  ,ISC      ,2021-07-30,13:28:16.61, 55.2895,-157.4063, 23.5,      ,ISC      ,mb    , 4.2,ISC      ,MS    , 3.5,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.4,IDC      ,MS    , 3.4,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+622451060,se  ,NEIC     ,2021-07-30,13:52:14.09, 55.5738,-156.4968, 35.0,TRUE  ,NEIC     ,ML    , 2.5,AEIC     ,ML    , 2.5,
+620986071,se  ,NEIC     ,2021-07-30,14:19:21.22, 54.8779,-157.8220, 29.8,      ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 2.8,
+622451063,se  ,ISC      ,2021-07-30,14:20:09.91, 54.9554,-157.9359, 22.5,      ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.4,IDC      ,MS    , 2.9,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7
+620968042,se  ,ISC      ,2021-07-30,14:41:49.54, 54.9853,-157.3808, 31.1,      ,ISC      ,mb    , 4.1,IDC      ,mb    , 3.8,IDC      ,mbtmp , 4.0,IDC      ,ML    , 4.3,IDC      ,MS    , 2.9,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8
+620986073,se  ,ISC      ,2021-07-30,14:43:44.00, 55.9248,-156.0734,  4.8,      ,ISC      ,mb    , 4.0,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.2,IDC      ,MS    , 2.7
+620913672,se  ,ISC      ,2021-07-30,14:58:19.82, 55.3180,-157.1527, 23.0,      ,ISC      ,mb    , 4.2,ISC      ,MS    , 3.2,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.2,IDC      ,MS    , 3.2,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+620968039,se  ,ISC      ,2021-07-30,19:15:33.41, 55.1395,-157.0639, 10.0,TRUE  ,ISC      ,mb    , 3.7,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.6
+620968036,se  ,ISC      ,2021-07-30,21:44:22.12, 55.5623,-156.1667, 14.8,      ,ISC      ,mb    , 4.1,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.4,IDC      ,MS    , 3.1,NEIC     ,mb    , 4.3,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.8
+620986095,se  ,ISC      ,2021-07-30,22:04:03.82, 55.7939,-154.4673, 21.0,TRUE  ,ISC      ,mb    , 3.7,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.1,NEIC     ,ML    , 3.1
+620923870,ke  ,ISC      ,2021-07-30,22:11:37.83, 55.7106,-154.4581, 14.2,      ,ISC      ,mb    , 5.1,ISC      ,MS    , 4.5,BJI      ,mb    , 5.3,BJI      ,mB    , 5.3,BJI      ,Ms    , 5.3,BJI      ,Ms7   , 5.1,IDC      ,mb    , 5.0,IDC      ,mbtmp , 5.0,IDC      ,ML    , 4.1,IDC      ,MS    , 4.4,NEIC     ,mb    , 5.2,NEIC     ,ML    , 4.9,AEIC     ,ML    , 4.7,GFZ      ,M     , 4.8,GFZ      ,mb    , 4.9,GCMT     ,MW    , 5.2,NEIC     ,Mww   , 4.8,BGR      ,mb    , 5.2,BGR      ,Ms    , 4.5
+620986100,se  ,ISC      ,2021-07-30,23:41:51.84, 55.6342,-155.8907, 19.0,TRUE  ,ISC      ,mb    , 3.4,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.3
+620986101,se  ,ISC      ,2021-07-31,00:58:41.47, 55.6682,-156.0186, 10.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,IDC      ,mb    , 2.8,IDC      ,mbtmp , 2.8,IDC      ,ML    , 2.8
+620968064,se  ,ISC      ,2021-07-31,03:25:21.03, 55.3970,-157.3586, 35.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 4.0,IDC      ,MS    , 3.1,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.0
+622451087,se  ,ISC      ,2021-07-31,04:20:18.59, 54.9246,-156.7694, 24.0,TRUE  ,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.4
+620968063,se  ,ISC      ,2021-07-31,04:47:38.88, 55.5301,-157.6608, 18.7,      ,ISC      ,mb    , 4.0,ISC      ,MS    , 3.1,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 4.1,IDC      ,MS    , 3.1,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.7
+620986108,se  ,ISC      ,2021-07-31,05:02:42.65, 55.3195,-157.4005, 35.0,TRUE  ,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.2,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2
+620986109,se  ,ISC      ,2021-07-31,05:04:46.38, 55.4154,-155.7230, 10.0,TRUE  ,IDC      ,mb    , 3.1,IDC      ,mbtmp , 3.1,IDC      ,ML    , 2.6,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.2
+622451090,se  ,NEIC     ,2021-07-31,06:56:36.68, 55.6490,-155.6448, 35.0,TRUE  ,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.0,
+622451107,se  ,NEIC     ,2021-07-31,11:30:36.48, 55.0253,-156.5198, 10.0,TRUE  ,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.6,
+620986122,se  ,ISC      ,2021-07-31,11:33:19.93, 54.9549,-156.4113, 22.0,TRUE  ,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.2,IDC      ,ML    , 3.0,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.0
+622451109,se  ,NEIC     ,2021-07-31,12:58:17.37, 55.0876,-157.5558, 26.1,      ,NEIC     ,mb    , 3.2,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.1,
+620968052,se  ,ISC      ,2021-07-31,15:28:23.77, 55.1024,-157.0841, 24.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.4,IDC      ,MS    , 3.0,NEIC     ,mb    , 4.2,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.8
+620925357,se  ,NEIC     ,2021-07-31,15:40:23.83, 55.0511,-157.4924, 28.8,      ,NEIC     ,ML    , 4.2,AEIC     ,ML    , 3.7,
+622451112,se  ,ISC      ,2021-07-31,15:40:55.14, 55.8875,-156.1046, 26.1,      ,ISC      ,mb    , 4.8,ISC      ,MS    , 4.5,IDC      ,mb    , 4.7,IDC      ,mbtmp , 4.6,IDC      ,ML    , 4.1,IDC      ,MS    , 4.3,NEIC     ,mb    , 4.9,NEIC     ,ML    , 4.6,NEIC     ,Mwr   , 4.5,AEIC     ,ML    , 4.5,GFZ      ,M     , 5.0,GFZ      ,mb    , 4.9
+622451117,se  ,ISC      ,2021-07-31,18:04:15.70, 56.0946,-156.3353, 41.3,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.3,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 3.8,IDC      ,MS    , 3.3,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.3,NEIC     ,Mwr   , 4.3,AEIC     ,ML    , 4.2,GFZ      ,M     , 5.2,GFZ      ,mb    , 4.7
+620925424,se  ,ISC      ,2021-08-01,08:58:56.96, 55.2099,-155.1375, 10.0,TRUE  ,ISC      ,mb    , 4.6,ISC      ,MS    , 3.9,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.3,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.0,IDC      ,MS    , 3.9,GFZ      ,M     , 4.6,GFZ      ,mb    , 4.6
+620986197,se  ,ISC      ,2021-08-01,09:50:29.58, 55.0735,-158.4869, 16.7,      ,ISC      ,mb    , 3.8,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.9
+620986208,se  ,ISC      ,2021-08-01,11:51:54.57, 55.1267,-156.9553, 15.3,      ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.7,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4
+620986217,se  ,ISC      ,2021-08-01,13:42:43.87, 54.8309,-156.9390,  6.0,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.6,IDC      ,MS    , 3.1,NEIC     ,mb    , 3.9,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3
+620986222,se  ,ISC      ,2021-08-01,14:43:44.05, 55.2592,-156.8363,  4.5,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 3.6,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 4.0,IDC      ,MS    , 3.6,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.1,AEIC     ,ML    , 3.9
+620925706,se  ,ISC      ,2021-08-01,15:27:40.46, 55.3773,-158.5540, 28.6,      ,ISC      ,mb    , 4.6,ISC      ,MS    , 3.8,IDC      ,mb    , 4.4,IDC      ,mbtmp , 4.4,IDC      ,ML    , 4.4,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.4,GFZ      ,M     , 4.8,GFZ      ,mb    , 4.7
+622451155,se  ,ISC      ,2021-08-01,20:01:11.14, 55.1415,-157.0438, 10.0,TRUE  ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5
+620993228,se  ,ISC      ,2021-08-02,09:01:36.38, 54.9749,-156.2112, 35.0,TRUE  ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.2,IDC      ,mb    , 4.0,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.0
+620993232,se  ,ISC      ,2021-08-02,09:16:46.12, 55.4562,-155.2505, 10.0,TRUE  ,ISC      ,mb    , 3.4,NEIC     ,ML    , 3.0,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.5
+620993270,se  ,ISC      ,2021-08-02,22:36:06.89, 55.2974,-157.1557, 28.5,      ,ISC      ,mb    , 4.2,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 4.1,IDC      ,MS    , 2.8,NEIC     ,mb    , 4.4,NEIC     ,ML    , 4.0,AEIC     ,ML    , 3.7
+620930503,se  ,ISC      ,2021-08-03,07:39:36.54, 54.7976,-156.8744, 35.0,TRUE  ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.7,IDC      ,MS    , 3.9,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5
+620995906,se  ,ISC      ,2021-08-03,21:29:40.43, 55.1595,-156.6537, 22.0,TRUE  ,ISC      ,mb    , 3.7,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.3
+620995919,se  ,ISC      ,2021-08-03,23:31:06.86, 55.3630,-157.0727, 10.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.5,IDC      ,MS    , 3.7
+620997279,se  ,ISC      ,2021-08-04,03:17:56.96, 55.3569,-157.7319, 15.2,      ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.4,NEIC     ,mb    , 4.2,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6
+622451243,se  ,NEIC     ,2021-08-04,11:06:35.23, 55.3928,-155.5596, 10.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+622451245,se  ,NEIC     ,2021-08-04,14:47:01.62, 55.1743,-157.3451, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+620998778,se  ,ISC      ,2021-08-05,01:45:54.01, 57.1495,-156.5504, 12.2,      ,ISC      ,mb    , 3.3,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.6,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3
+620998779,se  ,ISC      ,2021-08-05,02:40:41.77, 55.1662,-155.4827, 10.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.2,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.4
+620998789,se  ,ISC      ,2021-08-05,07:15:30.57, 55.0620,-157.6093, 19.5,      ,ISC      ,mb    , 3.8,ISC      ,MS    , 2.9,IDC      ,mb    , 3.4,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.4,IDC      ,MS    , 3.0,NEIC     ,mb    , 3.8,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4
+622451279,se  ,NEIC     ,2021-08-05,12:18:04.87, 54.8833,-155.3357, 10.0,TRUE  ,NEIC     ,ML    , 2.7,AEIC     ,ML    , 2.8,
+622451298,se  ,NEIC     ,2021-08-05,17:58:43.91, 55.4485,-155.6802, 19.9,      ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.5,
+620970691,se  ,ISC      ,2021-08-05,18:00:16.77, 55.1547,-157.1428, 22.0,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.6,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.2,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.6,AEIC     ,ML    , 4.3
+620998828,se  ,ISC      ,2021-08-05,19:52:38.30, 55.0332,-155.3998, 10.0,TRUE  ,ISC      ,mb    , 3.4,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.0,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.0
+620998831,se  ,ISC      ,2021-08-05,21:23:17.76, 54.9479,-155.3865, 10.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.2,AEIC     ,ML    , 3.4,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.1,IDC      ,MS    , 3.2
+620998832,se  ,ISC      ,2021-08-05,21:42:52.76, 54.9838,-155.4089, 10.0,TRUE  ,ISC      ,mb    , 4.0,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.1,IDC      ,MS    , 3.2
+622451306,se  ,NEIC     ,2021-08-06,07:53:03.14, 55.2822,-157.5491, 35.0,TRUE  ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.0,
+621000700,se  ,ISC      ,2021-08-07,03:57:31.69, 54.7516,-156.8724, 10.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.5,IDC      ,MS    , 2.8
+620976456,se  ,ISC      ,2021-08-08,20:41:38.16, 55.5141,-156.4114,  8.2,      ,ISC      ,mb    , 4.0,ISC      ,MS    , 3.4,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6,IDC      ,MS    , 3.4,NEIC     ,ML    , 4.0,NEIC     ,Mwr   , 4.1,AEIC     ,ML    , 4.0
+621007230,se  ,ISC      ,2021-08-09,06:08:04.33, 55.2743,-156.4482,  6.5,      ,ISC      ,mb    , 3.6,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.4,IDC      ,ML    , 2.8,IDC      ,MS    , 3.2
+621007244,se  ,ISC      ,2021-08-09,08:30:24.60, 55.3083,-155.5313, 24.2,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 3.2,NEIC     ,mb    , 4.1,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.2,IDC      ,MS    , 3.3
+621007262,se  ,ISC      ,2021-08-09,13:02:14.13, 55.1615,-157.3823, 12.9,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 4.2,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.6,IDC      ,MS    , 4.2,NEIC     ,mb    , 4.1,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6
+621008095,se  ,ISC      ,2021-08-10,06:04:11.94, 55.6533,-156.4295, 10.0,TRUE  ,ISC      ,mb    , 3.7,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.5,IDC      ,MS    , 3.1,NEIC     ,ML    , 3.7
+622451387,se  ,NEIC     ,2021-08-10,13:52:23.87, 56.2421,-159.1725, 10.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+622451390,se  ,NEIC     ,2021-08-10,19:24:48.31, 55.3992,-157.4843, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,
+620980018,se  ,ISC      ,2021-08-11,05:43:36.30, 54.7561,-156.8994, 10.0,TRUE  ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.7,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 4.0,IDC      ,MS    , 3.8,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1,GFZ      ,M     , 4.7,GFZ      ,mb    , 4.7
+621009317,se  ,ISC      ,2021-08-11,05:46:11.92, 54.7758,-156.8924, 11.7,      ,ISC      ,mb    , 4.1,ISC      ,MS    , 3.5,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.9,IDC      ,MS    , 3.6,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.8
+621009318,se  ,ISC      ,2021-08-11,05:51:02.29, 54.8604,-156.8868, 16.6,      ,ISC      ,mb    , 4.1,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,NEIC     ,mb    , 4.1,NEIC     ,ML    , 4.0,AEIC     ,ML    , 3.8
+620980051,se  ,ISC      ,2021-08-11,08:15:13.94, 54.7754,-156.9235, 10.0,TRUE  ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.7,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.1,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.3,IDC      ,ML    , 4.0,IDC      ,MS    , 3.6
+620983524,se  ,ISC      ,2021-08-12,09:54:34.22, 55.2371,-157.3380, 19.6,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.6,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 3.4,IDC      ,MS    , 3.6,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.3,AEIC     ,ML    , 4.0
+622451438,se  ,NEIC     ,2021-08-12,22:00:51.32, 55.1162,-157.1570, 25.0,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.3,
+621012188,se  ,ISC      ,2021-08-13,17:28:41.35, 55.1571,-157.5925, 23.3,      ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.7,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.4
+620986702,ke  ,ISC      ,2021-08-14,11:57:43.69, 55.1905,-157.7016, 20.8,      ,ISC      ,mb    , 6.3,ISC      ,MS    , 7.3,BJI      ,mb    , 6.2,BJI      ,mB    , 7.1,BJI      ,Ms    , 7.4,BJI      ,Ms7   , 7.4,IDC      ,mb    , 5.8,IDC      ,mbtmp , 5.8,IDC      ,ML    , 5.0,IDC      ,MS    , 7.1,PTWC     ,Mwp   , 6.7,MOS      ,mb    , 6.5,MOS      ,MS    , 7.2,ISC-PPSM ,Mwppsm, 7.2,GFZ      ,Mw    , 6.8,NEIC     ,mb    , 6.3,NEIC     ,ML    , 6.5,NEIC     ,Ms_20 , 7.3,NEIC     ,Mwb   , 6.9,GFZ      ,M     , 7.0,GFZ      ,mb    , 6.3,GFZ      ,mB    , 7.1,GFZ      ,Mw(mB), 7.1,GFZ      ,Mwp   , 6.7,IPGP     ,Mw    , 6.9,GCMT     ,MW    , 7.0,BGR      ,mb    , 6.0,BGR      ,Ms    , 7.3,NEIC     ,Mww   , 6.9,NEIC     ,Mwc   , 6.8
+622451480,se  ,NEIC     ,2021-08-14,12:04:29.92, 55.0785,-157.4431, 20.8,      ,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.6,
+621013488,se  ,ISC      ,2021-08-14,12:14:53.33, 55.1913,-157.5237, 37.9,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6
+622451483,se  ,NEIC     ,2021-08-14,12:34:51.62, 55.1542,-157.5606,  4.7,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+622451485,se  ,NEIC     ,2021-08-14,12:59:37.27, 54.7330,-156.8627, 10.0,TRUE  ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.9,
+622451487,se  ,ISC      ,2021-08-14,13:06:37.30, 55.0497,-157.6336,  7.6,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.8,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.1
+621013515,se  ,ISC      ,2021-08-14,14:55:00.17, 55.0512,-157.5121, 10.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.3
+621013517,se  ,ISC      ,2021-08-14,15:20:50.66, 54.7182,-156.7518, 35.0,TRUE  ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.6
+621013532,se  ,ISC      ,2021-08-14,17:33:17.34, 54.8210,-156.9427, 28.7,      ,ISC      ,mb    , 3.9,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.4,IDC      ,MS    , 3.8,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+621013541,se  ,ISC      ,2021-08-14,18:44:38.98, 55.3149,-157.5493, 29.3,      ,ISC      ,mb    , 4.4,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 4.1,IDC      ,MS    , 4.2,NEIC     ,mb    , 4.6,NEIC     ,ML    , 4.2,AEIC     ,ML    , 3.9
+621030119,se  ,ISC      ,2021-08-16,01:46:47.60, 54.4324,-155.8850,  7.1,      ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.4,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.4
+622451534,se  ,NEIC     ,2021-08-16,05:46:47.19, 55.3653,-156.3883, 35.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4,
+620989844,se  ,ISC      ,2021-08-16,16:24:03.64, 55.2833,-157.5348, 28.5,      ,ISC      ,mb    , 4.4,ISC      ,MS    , 3.7,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 3.8,IDC      ,MS    , 3.7,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.4,NEIC     ,Mwr   , 4.3,AEIC     ,ML    , 4.2
+621030293,se  ,ISC      ,2021-08-17,19:30:38.36, 56.5538,-155.5827, 68.1,      ,ISC      ,mb    , 3.9,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.7
+621030302,se  ,ISC      ,2021-08-17,20:16:04.47, 54.8622,-156.8841, 10.0,TRUE  ,ISC      ,mb    , 4.3,IDC      ,mb    , 4.1,IDC      ,mbtmp , 4.1,IDC      ,ML    , 4.0,IDC      ,MS    , 4.7,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.7
+622451576,se  ,NEIC     ,2021-08-18,03:57:13.34, 55.4853,-156.9711, 10.0,TRUE  ,NEIC     ,ML    , 2.8,AEIC     ,ML    , 2.7,
+621030407,se  ,ISC      ,2021-08-18,19:30:55.87, 54.2876,-159.5643, 15.4,      ,ISC      ,mb    , 3.7,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.4,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.8,IDC      ,MS    , 3.6
+621030412,se  ,ISC      ,2021-08-18,20:06:50.89, 54.7405,-156.7890,  3.7,      ,ISC      ,mb    , 3.8,ISC      ,MS    , 3.9,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.5,IDC      ,MS    , 3.6
+621039147,se  ,ISC      ,2021-08-19,02:22:27.96, 56.6393,-157.2235, 11.6,      ,ISC      ,mb    , 4.2,ISC      ,MS    , 3.4,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 4.0,IDC      ,MS    , 3.4,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.2,AEIC     ,ML    , 4.0
+621039190,se  ,ISC      ,2021-08-19,12:19:37.95, 54.7590,-156.8079, 35.0,TRUE  ,ISC      ,mb    , 3.7,ISC      ,MS    , 3.7,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.6,IDC      ,MS    , 3.7,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.2
+622451634,se  ,NEIC     ,2021-08-20,23:48:37.35, 55.2822,-157.6919, 32.9,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.4,
+621042967,se  ,ISC      ,2021-08-21,03:53:55.89, 55.1503,-157.2620,  3.6,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 3.3,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.3,IDC      ,MS    , 3.3,NEIC     ,ML    , 3.9,AEIC     ,ML    , 3.7
+621042978,se  ,ISC      ,2021-08-21,08:44:28.83, 55.8141,-156.1761, 33.1,      ,ISC      ,mb    , 3.7,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.6,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.0,IDC      ,MS    , 3.1
+621003201,ke  ,ISC      ,2021-08-25,01:31:27.16, 55.4779,-158.4993, 43.4,      ,ISC      ,mb    , 4.8,ISC      ,MS    , 3.6,IDC      ,mb    , 4.6,IDC      ,mbtmp , 4.6,IDC      ,ML    , 4.5,IDC      ,MS    , 3.6,GFZ      ,M     , 5.0,GFZ      ,mb    , 5.0,BJI      ,mb    , 5.1,BJI      ,mB    , 5.1,BJI      ,Ms    , 4.5,BJI      ,Ms7   , 4.2,BGR      ,mb    , 4.8,NEIC     ,mb    , 4.9,NEIC     ,ML    , 4.8,NEIC     ,Mwr   , 4.3,AEIC     ,ML    , 4.5
+621072139,se  ,ISC      ,2021-08-27,09:39:56.63, 54.9404,-158.4929, 10.9,      ,ISC      ,mb    , 3.4,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5,IDC      ,mb    , 3.2,IDC      ,mbtmp , 3.4,IDC      ,ML    , 3.3
+621072173,se  ,ISC      ,2021-08-27,20:22:25.36, 54.4355,-158.3500,  4.9,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 3.2,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.0,IDC      ,MS    , 3.2,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+621072190,se  ,ISC      ,2021-08-27,23:50:18.14, 56.0304,-157.1774, 20.2,      ,ISC      ,mb    , 3.6,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.6,IDC      ,MS    , 2.1,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+622451760,se  ,NEIC     ,2021-08-28,20:21:49.11, 54.9745,-157.9002, 29.0,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.5,
+621071738,se  ,ISC      ,2021-08-31,22:15:50.39, 54.7403,-156.7973, 10.2,      ,ISC      ,mb    , 4.1,NEIC     ,mb    , 4.0,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.6,IDC      ,mb    , 4.0,IDC      ,mbtmp , 4.0,IDC      ,ML    , 3.9,IDC      ,MS    , 3.3
+621080657,se  ,ISC      ,2021-09-02,03:40:47.49, 57.9288,-155.2772, 94.4,      ,IDC      ,mb    , 3.7,IDC      ,mbtmp , 4.0,IDC      ,MS    , 2.3,NEIC     ,ML    , 3.6,AEIC     ,ML    , 3.5
+621022655,se  ,NEIC     ,2021-09-02,08:07:38.10, 54.4933,-159.6066, 23.1,      ,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.4,
+622451833,ke  ,ISC      ,2021-09-02,08:08:35.87, 54.5335,-159.6522, 24.6,      ,ISC      ,mb    , 4.5,ISC      ,MS    , 3.9,IDC      ,mb    , 4.2,IDC      ,mbtmp , 4.2,IDC      ,ML    , 3.9,IDC      ,MS    , 3.9,GFZ      ,M     , 4.6,GFZ      ,mb    , 4.6,BGR      ,mb    , 4.8,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.6,NEIC     ,Mwr   , 4.6,AEIC     ,ML    , 4.4
+621080685,se  ,ISC      ,2021-09-02,13:37:45.90, 55.1603,-157.6603, 10.0,TRUE  ,ISC      ,mb    , 4.1,ISC      ,MS    , 3.1,NEIC     ,ML    , 3.9,NEIC     ,Mwr   , 3.8,AEIC     ,ML    , 3.7,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.9,IDC      ,ML    , 3.8,IDC      ,MS    , 3.3
+621081572,se  ,ISC      ,2021-09-03,15:54:48.12, 55.3873,-156.4335, 14.0,      ,ISC      ,mb    , 3.5,IDC      ,mb    , 3.5,IDC      ,mbtmp , 3.5,IDC      ,ML    , 3.7,IDC      ,MS    , 2.9,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3
+621081590,se  ,ISC      ,2021-09-03,20:38:34.19, 55.0073,-157.7991, 22.2,      ,ISC      ,mb    , 3.9,ISC      ,MS    , 3.3,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.9,IDC      ,ML    , 4.4,IDC      ,MS    , 3.2,NEIC     ,mb    , 4.3,NEIC     ,ML    , 4.2,NEIC     ,Mwr   , 4.0,AEIC     ,ML    , 3.9
+622451881,se  ,NEIC     ,2021-09-04,14:23:53.67, 55.1089,-156.6648, 10.0,TRUE  ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.3,
+621086382,se  ,ISC      ,2021-09-05,05:06:44.17, 56.5584,-155.7213, 58.3,      ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.5,IDC      ,MS    , 2.4,NEIC     ,ML    , 3.8,AEIC     ,ML    , 3.5
+622451934,se  ,NEIC     ,2021-09-06,21:53:33.83, 55.1365,-159.2203, 35.0,TRUE  ,NEIC     ,mb    , 3.7,NEIC     ,ML    , 3.4,AEIC     ,ML    , 3.3,
+622451983,se  ,NEIC     ,2021-09-09,03:15:39.97, 54.4928,-159.7486, 20.4,      ,NEIC     ,ML    , 3.5,AEIC     ,ML    , 2.9,
+621108505,se  ,ISC      ,2021-09-10,09:21:02.59, 54.7173,-156.8343, 10.0,TRUE  ,ISC      ,mb    , 4.0,NEIC     ,mb    , 3.8,NEIC     ,ML    , 3.3,AEIC     ,ML    , 3.3,IDC      ,mb    , 3.9,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.6
+622452074,se  ,NEIC     ,2021-09-13,03:15:30.14, 54.4937,-159.9622,  8.2,      ,NEIC     ,ML    , 3.2,AEIC     ,ML    , 2.9,
+621109694,se  ,ISC      ,2021-09-13,03:20:38.30, 58.2707,-156.0898,179.3,      ,ISC      ,mb    , 3.8,IDC      ,mb    , 3.0,IDC      ,mbtmp , 3.4,NEIC     ,ML    , 2.5,AEIC     ,ML    , 2.2
+621076726,se  ,ISC      ,2021-09-15,10:48:57.52, 55.1226,-156.2842, 22.0,TRUE  ,ISC      ,mb    , 4.4,ISC      ,MS    , 3.2,NEIC     ,mb    , 4.5,NEIC     ,ML    , 4.2,NEIC     ,Mwr   , 4.3,AEIC     ,ML    , 3.9,IDC      ,mb    , 4.3,IDC      ,mbtmp , 4.2,IDC      ,ML    , 3.7,IDC      ,MS    , 3.4
+621080781,ke  ,ISC      ,2021-09-16,17:51:55.81, 55.1161,-156.4676, 24.7,      ,ISC      ,mb    , 5.4,ISC      ,MS    , 5.4,IDC      ,mb    , 5.1,IDC      ,mbtmp , 5.1,IDC      ,ML    , 4.7,IDC      ,MS    , 5.3,MOS      ,mb    , 5.7,MOS      ,MS    , 5.3,IPGP     ,Mw    , 5.7,BJI      ,mb    , 5.5,BJI      ,mB    , 5.9,BJI      ,Ms    , 6.0,BJI      ,Ms7   , 5.9,ISC-PPSM ,Mwppsm, 6.1,NEIC     ,mb    , 5.5,NEIC     ,ML    , 5.5,NEIC     ,Ms_20 , 5.4,NEIC     ,Mwb   , 5.6,GFZ      ,M     , 5.6,GFZ      ,mb    , 5.4,GFZ      ,mB    , 6.0,GFZ      ,ML    , 5.9,GFZ      ,Mw(mB), 5.6,GFZ      ,Mwp   , 5.7,GFZ      ,Mw    , 5.6,GCMT     ,MW    , 5.6,BGR      ,mb    , 5.7,BGR      ,Ms    , 5.1,NEIC     ,Mww   , 5.6
+621112907,se  ,ISC      ,2021-09-16,18:34:59.98, 54.9713,-156.2739, 10.0,TRUE  ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.7,IDC      ,mbtmp , 3.6,IDC      ,ML    , 3.3,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.2
+621080883,ke  ,ISC      ,2021-09-16,23:05:08.58, 55.1581,-156.4801, 19.7,      ,ISC      ,mb    , 5.2,ISC      ,MS    , 4.8,BJI      ,mb    , 5.4,BJI      ,mB    , 5.5,BJI      ,Ms    , 5.4,BJI      ,Ms7   , 5.3,IDC      ,mb    , 4.9,IDC      ,mbtmp , 5.0,IDC      ,ML    , 4.6,IDC      ,MS    , 4.7,NEIC     ,Mww   , 5.2,GFZ      ,M     , 5.0,GFZ      ,mb    , 5.0,GFZ      ,mB    , 5.5,GFZ      ,ML    , 5.3,GFZ      ,Mw(mB), 5.0,GFZ      ,Mwp   , 5.2,NEIC     ,mb    , 5.1,NEIC     ,ML    , 5.1,NEIC     ,Mwb   , 5.2,AEIC     ,ML    , 5.0,MOS      ,mb    , 5.5,MOS      ,MS    , 4.8,GCMT     ,MW    , 5.3,BGR      ,mb    , 5.3,BGR      ,Ms    , 4.5
+621112979,se  ,ISC      ,2021-09-17,18:19:54.83, 56.6291,-156.9146,  1.6,      ,ISC      ,mb    , 3.8,NEIC     ,ML    , 3.5,AEIC     ,ML    , 3.2,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.7,IDC      ,ML    , 3.0,IDC      ,MS    , 3.3
+621113625,se  ,ISC      ,2021-09-19,13:17:45.64, 54.7998,-158.5785, 22.6,      ,ISC      ,mb    , 4.0,IDC      ,mb    , 3.8,IDC      ,mbtmp , 3.8,IDC      ,ML    , 3.5,IDC      ,MS    , 2.8,NEIC     ,mb    , 4.3,NEIC     ,ML    , 3.7,AEIC     ,ML    , 3.5
+622499404,se  ,NEIC     ,2021-09-24,16:57:38.76, 54.4784,-159.7716, 20.2,      ,NEIC     ,ML    , 3.3,AEIC     ,ML    , 2.9,
+621131518,se  ,ISC      ,2021-09-26,15:23:18.70, 58.5226,-155.7339,158.5,      ,IDC      ,mb    , 3.3,IDC      ,mbtmp , 3.7,IDC      ,MS    , 2.6,NEIC     ,ML    , 3.1,AEIC     ,ML    , 3.1
+
+STOP
+
+Agencies whose data contributed towards the results of this search:
+
+ BGR       Bundesanstalt für Geowissenschaften und Rohstoffe
+ BJI       China Earthquake Networks Center
+ CATAC     Central American Tsunami Advisory Center
+ GCMT      The Global CMT Project
+ GFZ       Helmholtz Centre Potsdam GFZ German Research Centre For Geosciences
+ IDC       International Data Centre, CTBTO
+ IPGP      Institut de Physique du Globe de Paris
+ ISC       International Seismological Centre
+ ISC-EHB   Revision and Continuation of the EHB project
+ ISC-PPSM  International Seismological Centre Probabilistic Point Source Model
+ MOS       Geophysical Survey of Russian Academy of Sciences
+ NEIC      National Earthquake Information Center
+ PTWC      Pacific Tsunami Warning Center
+
+Sat Jun 14 23:27:32 2025 GMT
+
+International Seismological Centre
+Pipers Lane, Thatcham, Berkshire
+United Kingdom RG19 4NS
++44 (0)1635 861022, voice; +44 (0)1635 872351, fax
+adminisc.ac.uk, e-mail
