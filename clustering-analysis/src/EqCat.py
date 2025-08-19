@@ -66,6 +66,9 @@ class EqCat:
         - kwargs['removeColumn']: номера столбцов для удаления перед загрузкой
         Возвращает: объект каталога с данными в self.data = {'Time', 'Lon', 'Lat', 'Depth', 'Mag'}
         """
+        import pandas as pd
+        import numpy as np
+        
         # Проверка аргумента header в kwargs
         if 'header' in kwargs.keys() and kwargs['header'] is not None:
             header = kwargs['header']
@@ -79,35 +82,87 @@ class EqCat:
 
         # Обработка разных типов каталогов
         if catalogType == 'USGS':
+            
             # Каталог USGS: содержит данные в формате CSV с определенными столбцами
             # Загружаем дату и время (столбцы 0, 2, 4, 6, 8, 10) с разделителями
             mDateTime = np.genfromtxt(file_in, delimiter=(4,1,2,1,2,1,2,1,2,1,4),
-                                      skip_header=1, usecols=(0,2,4,6,8,10)).T
+                                    skip_header=1, usecols=(0,2,4,6,8,10)).T
             headDate = ['YR', 'MO', 'DY', 'HR', 'MN', 'SC']
             # Заполняем словарь данными о времени
             for i in range(len(headDate)):
                 self.data[headDate[i]] = mDateTime[i]
             # Создаем ID для каждого события (простая нумерация)
             self.data['ID'] = np.arange(len(self.data['YR']))
-            # Загружаем координаты и магнитуду (столбцы 1, 2, 3, 4)
+            
+            # Загружаем координаты и магнитуду (столбцы 1, 2, 3, 4) с обработкой пустых значений
             header = ['Lat', 'Lon', 'Depth', 'Mag']
-            mData = np.loadtxt(file_in, delimiter=',', skiprows=1, usecols=(1,2,3,4), dtype=float).T
+            
+            # Используем pandas для более надёжной загрузки с обработкой пропусков
+            try:
+                # Читаем нужные столбцы
+                df = pd.read_csv(file_in, usecols=[1, 2, 3, 4], skiprows=1, header=None)
+                # Заменяем пустые строки и пробелы на NaN
+                df = df.replace(r'^\s*$', np.nan, regex=True)
+                # Удаляем строки с пропущенными значениями
+                df = df.dropna()
+                # Преобразуем в numpy массив
+                mData = df.values.T.astype(float)
+                
+                # Проверяем, что остались данные
+                if mData.shape[1] == 0:
+                    raise ValueError("Все строки содержат пропущенные значения")
+                    
+            except Exception as e:
+                print(f"Ошибка при загрузке данных: {e}")
+                # Создаем пустые массивы, если данные не загрузились
+                mData = np.empty((4, 0))
+            
             # Заполняем словарь данными о координатах и магнитуде
             for i in range(len(header)):
-                self.data[header[i]] = mData[i]
+                if i < mData.shape[0]:  # Проверяем, что индекс существует
+                    self.data[header[i]] = mData[i]
+                else:
+                    self.data[header[i]] = np.array([])  # Пустой массив, если данных нет
 
-        # Преобразуем дату и время в десятичные годы
-        self.data['Time'] = np.array([])
-        for i in range(self.data['Mag'].shape[0]):
-            if verbose:
-                print(i+1, 'out of', self.data['Mag'].shape[0])  # Прогресс обработки
-            # Проверяем корректность даты и времени
-            YR, MO, DY, HR, MN, SC = dateTime.checkDateTime([self.data['YR'][i], self.data['MO'][i], self.data['DY'][i], self.data['HR'][i], self.data['MN'][i], self.data['SC'][i]])
-            # Преобразуем дату в десятичные годы и добавляем в массив
-            self.data['Time'] = np.append(self.data['Time'], 
-                                          dateTime.dateTime2decYr([YR, MO, DY, HR, MN, SC]))
-        # Сортируем каталог по времени
-        self.sortCatalog('Time')
+            # Обновляем ID, если были удалены строки с пропущенными значениями
+            if len(self.data['Lat']) > 0:
+                self.data['ID'] = np.arange(len(self.data['Lat']))
+            else:
+                self.data['ID'] = np.array([])
+
+        # Преобразуем дату и время в десятичные годы (только если есть данные)
+        if len(self.data.get('Mag', [])) > 0:
+            self.data['Time'] = np.array([])
+            valid_indices = []  # Для отслеживания валидных индексов
+            
+            for i in range(len(self.data['Mag'])):
+                if verbose:
+                    print(i+1, 'out of', len(self.data['Mag']))  # Прогресс обработки
+                
+                try:
+                    # Проверяем корректность даты и времени
+                    YR, MO, DY, HR, MN, SC = dateTime.checkDateTime([
+                        self.data['YR'][i], self.data['MO'][i], self.data['DY'][i], 
+                        self.data['HR'][i], self.data['MN'][i], self.data['SC'][i]
+                    ])
+                    # Преобразуем дату в десятичные годы и добавляем в массив
+                    dec_year = dateTime.dateTime2decYr([YR, MO, DY, HR, MN, SC])
+                    self.data['Time'] = np.append(self.data['Time'], dec_year)
+                    valid_indices.append(i)
+                except Exception as e:
+                    if verbose:
+                        print(f"Пропущена запись {i+1} из-за ошибки: {e}")
+                    continue
+            
+            # Фильтруем данные, оставляя только валидные записи
+            if len(valid_indices) < len(self.data['Mag']):
+                for key in ['YR', 'MO', 'DY', 'HR', 'MN', 'SC', 'Lat', 'Lon', 'Depth', 'Mag', 'ID']:
+                    if key in self.data and len(self.data[key]) > 0:
+                        self.data[key] = self.data[key][valid_indices]
+        
+        # Сортируем каталог по времени (если есть данные)
+        if len(self.data.get('Time', [])) > 0:
+            self.sortCatalog('Time')
 
         # Очистка: удаляем временный файл, если он был создан
         if 'removeColumn' in kwargs.keys() and kwargs['removeColumn'] is not None:
