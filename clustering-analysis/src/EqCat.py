@@ -5,6 +5,8 @@ import os
 import numpy as np 
 import src.datetime_utils as dateTime
 import scipy.io  # Модуль для чтения и записи .mat файлов (бинарный формат MATLAB)
+from math import radians, sin, cos, sqrt, atan2
+from datetime import datetime, timedelta
 
 class EqCat:
     """
@@ -262,6 +264,88 @@ class EqCat:
             # Выбираем события, где ID присутствует в a_ID (без повторов)
             a_sel = np.in1d(self.data['N'], a_ID, assume_unique=True)
         self.selDicAll(a_sel)
+
+    def tieToMainshock(self, mainshock, max_distance_km=500, days_before=1, months_after=2, **kwargs):
+        """
+        Фильтрует события каталога, оставляя только те, которые связаны с основным толчком (mainshock),
+        на основе расстояния (Haversine) и временного окна.
+        
+        Параметры:
+        - mainshock: словарь с информацией об основном толчке, содержащий ключи:
+            'time' (строка в формате 'YYYY MM DD HH:MM:SS.s'), 'latitude', 'longitude'
+        - max_distance_km: максимальное расстояние от эпицентра (в км, по умолчанию 500)
+        - days_before: количество дней до основного толчка для временного окна (по умолчанию 1)
+        - months_after: количество месяцев после основного толчка для временного окна (по умолчанию 2)
+        - kwargs['returnSel']: если True, возвращает массив индексов вместо изменения каталога
+        - kwargs['includeBoundaryEvents']: если True, включает события на границах диапазона (время и расстояние)
+        
+        Возвращает:
+        - Если returnSel=True, возвращает булев массив индексов событий.
+        - Иначе модифицирует self.data, оставляя только отфильтрованные события.
+        """
+        # Haversine formula for calculating distance between two points on Earth
+        def haversine_distance(lat1, lon1, lat2, lon2):
+            R = 6371.0  # Earth radius in km
+            lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
+            dlat = lat2 - lat1
+            dlon = lon2 - lon1
+            a = sin(dlat/2)**2 + cos(lat1)*cos(lat2)*sin(dlon/2)**2
+            c = 2 * atan2(sqrt(a), sqrt(1 - a))
+            return R * c
+
+        # Parse mainshock time
+        try:
+            mainshock_time = datetime.strptime(mainshock['time'], '%Y %m %d %H:%M:%S.%f')
+        except ValueError:
+            raise ValueError("Mainshock 'time' must be in format 'YYYY MM DD HH:MM:SS.s'")
+
+        # Convert mainshock time to decimal years for comparison
+        def to_decimal_year(dt):
+            year_start = datetime(dt.year, 1, 1)
+            year_end = datetime(dt.year + 1, 1, 1)
+            year_fraction = (dt - year_start).total_seconds() / (year_end - year_start).total_seconds()
+            return dt.year + year_fraction
+
+        mainshock_decimal_time = to_decimal_year(mainshock_time)
+
+        # Define time window
+        start_time = mainshock_time - timedelta(days=days_before)
+        end_time = mainshock_time + timedelta(days=30 * months_after)
+        start_decimal_time = to_decimal_year(start_time)
+        end_decimal_time = to_decimal_year(end_time)
+
+        # Filter by time window
+        include_boundaries = kwargs.get('includeBoundaryEvents', False)
+        if include_boundaries:
+            time_sel = np.logical_and(self.data['Time'] >= start_decimal_time, 
+                                    self.data['Time'] <= end_decimal_time)
+        else:
+            time_sel = np.logical_and(self.data['Time'] >= start_decimal_time, 
+                                    self.data['Time'] < end_decimal_time)
+
+        # Calculate distances
+        distances = np.array([
+            haversine_distance(mainshock['latitude'], mainshock['longitude'], lat, lon)
+            for lat, lon in zip(self.data['Lat'], self.data['Lon'])
+        ])
+
+        # Filter by distance
+        if include_boundaries:
+            distance_sel = distances <= max_distance_km
+        else:
+            distance_sel = distances < max_distance_km
+
+        # Combine filters
+        sel = np.logical_and(time_sel, distance_sel)
+
+        # Remove events with zero distance to avoid duplicates or mainshock itself
+        zero_distance = distances == 0
+        sel = np.logical_and(sel, ~zero_distance)
+
+        if kwargs.get('returnSel', False):
+            return sel
+        else:
+            self.selDicAll(sel)
 
     #======================================3==========================================
     #                            Работа с .mat файлами
