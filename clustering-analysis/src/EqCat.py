@@ -93,8 +93,8 @@ class EqCat:
             # Заполняем словарь данными о времени
             for i in range(len(headDate)):
                 self.data[headDate[i]] = mDateTime[i]
-            # Создаем ID для каждого события (простая нумерация)
-            self.data['ID'] = np.arange(len(self.data['YR']))
+            # Создаем N для каждого события (простая нумерация)
+            self.data['N'] = np.arange(len(self.data['YR']))
             
             # Загружаем координаты и магнитуду (столбцы 1, 2, 3, 4) с обработкой пустых значений
             header = ['Lat', 'Lon', 'Depth', 'Mag']
@@ -126,11 +126,11 @@ class EqCat:
                 else:
                     self.data[header[i]] = np.array([])  # Пустой массив, если данных нет
 
-            # Обновляем ID, если были удалены строки с пропущенными значениями
+            # Обновляем N, если были удалены строки с пропущенными значениями
             if len(self.data['Lat']) > 0:
-                self.data['ID'] = np.arange(len(self.data['Lat']))
+                self.data['N'] = np.arange(len(self.data['Lat']))
             else:
-                self.data['ID'] = np.array([])
+                self.data['N'] = np.array([])
 
         # Преобразуем дату и время в десятичные годы (только если есть данные)
         if len(self.data.get('Mag', [])) > 0:
@@ -158,7 +158,7 @@ class EqCat:
             
             # Фильтруем данные, оставляя только валидные записи
             if len(valid_indices) < len(self.data['Mag']):
-                for key in ['YR', 'MO', 'DY', 'HR', 'MN', 'SC', 'Lat', 'Lon', 'Depth', 'Mag', 'ID']:
+                for key in ['YR', 'MO', 'DY', 'HR', 'MN', 'SC', 'Lat', 'Lon', 'Depth', 'Mag', 'N']:
                     if key in self.data and len(self.data[key]) > 0:
                         self.data[key] = self.data[key][valid_indices]
         
@@ -398,7 +398,7 @@ class EqCat:
         Выход: добавляет в self.data поля 'X', 'Y' (в км) и сохраняет 'Depth'
         """
         # Установка пути к PROJ_LIB (необходимо для Basemap, закомментировать, если не нужно)
-        os.environ["PROJ_LIB"] = f"{os.environ['HOME']}/opt/anaconda3/share/proj"
+        # os.environ["PROJ_LIB"] = f"{os.environ['HOME']}/opt/anaconda3/share/proj"
         from mpl_toolkits.basemap import Basemap
         projection = 'aeqd'  # Проекция по умолчанию
         if 'projection' in kwargs.keys() and kwargs['projection'] is not None:
