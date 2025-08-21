@@ -92,13 +92,13 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
                 curr_Eta = tau[vcurr_ID]* (vR[sel_r_par]**dConst['D']) *( 10**(-dConst['b']*a_M_MS_ref[vcurr_ID]))
                 sel_min  = curr_Eta == curr_Eta.min()
                 aNND[jC]    = curr_Eta[sel_min][0]
-                vID_p[jC]   = eqCat.data['N'][vcurr_ID][sel_min][0]
-                vID_c[jC]   = eqCat.data['N'][jC]
-                #print( 'parent', eqCat.data['N'][vcurr_ID][sel_min][0],  'offspring', eqCat.data['N'][jC]
+                vID_p[jC]   = eqCat.data['ID'][vcurr_ID][sel_min][0]
+                vID_c[jC]   = eqCat.data['ID'][jC]
+                #print( 'parent', eqCat.data['ID'][vcurr_ID][sel_min][0],  'offspring', eqCat.data['ID'][jC]
                 #print( 'parent', eqCat.data['Time'][vcurr_ID][sel_min][0],  'offspring', eqCat.data['Time'][jC]
 
                 if sel_min.sum() > 1:
-                    print( aNND[jC], curr_Eta[sel_min], eqCat.data['N'][vcurr_ID][sel_min])
+                    print( aNND[jC], curr_Eta[sel_min], eqCat.data['ID'][vcurr_ID][sel_min])
                     print( eqCat.data['Lon'][vcurr_ID][sel_min], eqCat.data['Lat'][vcurr_ID][sel_min])
     sel2 = aNND > 0
     if np.logical_not(sel2).sum() > 0:
@@ -167,8 +167,8 @@ def rescaled_t_r(catChild, catPar, dConst, **kwargs):
     a_tau = (a_dt)*vMagCorr
     sel2 = a_tau < 0
     if sel2.sum() > 0:
-        #print( catChild.data['N'][sel2])
-        #print( catPar.data['N'][sel2])
+        #print( catChild.data['ID'][sel2])
+        #print( catPar.data['ID'][sel2])
         error_str = '%i parents occurred after offspring, check order of origin time in catChild, catPar'%(sel2.sum())
         raise( ValueError( error_str))
     return a_R, a_tau
@@ -436,12 +436,12 @@ def addClID2cat( seisCat, dClust, test_plot = False, **kwargs):
             mClust[3, i:i + nEv] = dClust[sCl][2]
         i += nEv
     #---------include first event in catalog as single-------------
-    selFirst = seisCat.data['N'][0] == mClust[1]
+    selFirst = seisCat.data['ID'][0] == mClust[1]
     if selFirst.sum() == 0:
-        ID_first = int( seisCat.data['N'][0]) #[~selUni][0])
-        print( 'first ev. in catalog -ID:', ID_first, int( seisCat.data['N'][0]), 'last ev. in mClust', mClust[1,-1], 'should=0')
+        ID_first = int( seisCat.data['ID'][0]) #[~selUni][0])
+        print( 'first ev. in catalog -ID:', ID_first, int( seisCat.data['ID'][0]), 'last ev. in mClust', mClust[1,-1], 'should=0')
         mClust[1] = np.hstack( (ID_first, mClust[1,0:-1]))# not needed if catalog is sorted by Time
-    #sel_same = np.in1d( mClust[1], seisCat.data['N'])
+    #sel_same = np.in1d( mClust[1], seisCat.data['ID'])
     # check that every event ID is represented only once
     __, aID, aN_uni = np.unique( mClust[1], return_counts = True, return_index=True)
     sel = aN_uni > 1
@@ -451,12 +451,12 @@ def addClID2cat( seisCat, dClust, test_plot = False, **kwargs):
     #--sort both cluster ID matrix and cat with respect to IDs
     sortSel = mClust[1].argsort()
     mClust = mClust.T[sortSel].T
-    seisCat.sortCatalog('N') #--otherwise clIDs get assigned to wrong event
+    seisCat.sortCatalog('ID') #--otherwise clIDs get assigned to wrong event
 
     if test_plot == True:
         plt.figure()
         plt.subplot( 211)
-        plt.plot( mClust[1], mClust[1]-seisCat.data['N'], 'ko')
+        plt.plot( mClust[1], mClust[1]-seisCat.data['ID'], 'ko')
         plt.xlabel( 'Event ID in Clust')
         plt.ylabel( 'Diff. Events IDs (0)')
         plt.subplot( 212)
@@ -584,10 +584,10 @@ def offspring_gen_test( dClust, dNND, f_eta_0, **kwargs):
     # for tag in list(dNND.keys()):
     #     dNND[tag] = dNND[tag][sortSel]
     # seisCat.sortCatalog('Time')
-    # firstEvID = seisCat.data['N'][0]
-    # seisCat.sortCatalog('N')
+    # firstEvID = seisCat.data['ID'][0]
+    # seisCat.sortCatalog('ID')
     # # add offspring origin time to dNND
-    # sel = firstEvID == seisCat.data['N']
+    # sel = firstEvID == seisCat.data['ID']
     # dNND['at_c'] = seisCat.data['Time'][~sel]
     # check that dNND is sorted by time
     # if 'Time' in dNND.keys():
