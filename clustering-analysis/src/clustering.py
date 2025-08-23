@@ -100,7 +100,8 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
                     print( eqCat.data['Lon'][vcurr_ID][sel_min], eqCat.data['Lat'][vcurr_ID][sel_min])
     sel2 = aNND > 0
     if np.logical_not(sel2).sum() > 0:
-        print( f"{np.logical_not(sel2).sum()} %i events with NND=0 ")
+        pass
+        # print( f"{np.logical_not(sel2).sum()} %i events with NND=0 ")
         #raise ValueError, error_str
     #  remove events with aNND < 0; i.e. event at the beginning with no preceding parent
     return {  'aNND' : aNND[sel2], 'aEqID_p' : vID_p[sel2], 'aEqID_c' : vID_c[sel2], 'Time' : eqCat.data['Time'][sel2]}
