@@ -1,17 +1,11 @@
 '''
-Created on April 10th, 2019
-
-    - function required for clustering analysis based on nearest-neighbor distances
-    
-    - NND_eta - eq. 1 for NND in Zaliaping & Ben-Zion 2013
-
-@author: tgoebel
+Функции, необходимые для анализа кластеризации на основе расстояний до ближайшего соседа
 '''
 import numpy as np
 import matplotlib.pyplot as plt
 import warnings
 #===============================================================================
-#                          my modules
+#                          Собственные модули
 #===============================================================================
 import src.data_utils as data_utils
 
@@ -20,38 +14,38 @@ import src.data_utils as data_utils
 #===============================================================================
 def NND_eta( eqCat, dConst, verbose = False, **kwargs):
     """
-        - NND_eta - eq. 1 for NND in Zaliapin & Ben-Zion 2013
-    search for 'parent event' i.e. earthquake that occurred closest in space-time-magnitude domain 
-                                   but prior to the current event
-        here: [jC]          - are the off spring events and we try to find the closest parent, occurring earlier in time
-              [sel_tau_par] - are the potential parent events that occurred before [jC], we select the closest in time
+        - NND_eta - уравнение 1 для NND в Zaliapin & Ben-Zion 2013
+    Поиск "родительского события", т.е. землетрясения, ближайшего в пространственно-временном-магнитудном домене, 
+    произошедшего ранее текущего события
+        здесь: [jC]          - дочерние события, для которых мы ищем ближайшее родительское событие, произошедшее ранее
+              [sel_tau_par] - потенциальные родительские события, произошедшие до [jC], выбираем ближайшее по времени
 
-    Parameters
+    Параметры
     ----------
-    catalog     - catalog.data['Time'], 'Lon', 'Lat' (or 'X', 'Y',) 'Depth', 'MAG'
-                - time, cartesian coordinates (X,Y, Depth), magnitude
-    dConst      - {'Mc':float, 'b':float, 'D':float} #  dictionary with statistical seismicity parameters
-                   - completeness , b-value, fractal dimension
-    kwargs      - rmax (default: = 500) - maximum space window (for faster computation)
-                - tmax (default: =  20) - maximum time window (for faster computation)
-                - correct_co_located = True, add gaussian uncertainty to avoid product going to zero for co-located earthquakes
-                - haversine = True - use haversine distance at surface instead of 3D cartesian distance
-                - M0 - reference magnitude, default: M0 = 0
-    Returns
+    eqCat     - каталог данных: catalog.data['Time'], 'Lon', 'Lat' (или 'X', 'Y'), 'Depth', 'Mag'
+                - время, декартовы координаты (X, Y, Depth), магнитуда
+    dConst    - {'Mc':float, 'b':float, 'D':float} # словарь со статистическими параметрами сейсмичности
+                - пороговая магнитуда, b-значение, фрактальная размерность
+    kwargs    - rmax (по умолчанию: = 500) - максимальное пространственное окно (для ускорения вычислений)
+              - tmax (по умолчанию: =  20) - максимальное временное окно (для ускорения вычислений)
+              - correct_co_located = True, добавить гауссову погрешность, чтобы избежать нуля для совпадающих землетрясений
+              - haversine = True - использовать расстояние по формуле гаверсинуса вместо 3D декартова расстояния
+              - M0 - опорная магнитуда, по умолчанию: M0 = 0
+
+    Возвращает
     -------
-    - {  'aNND'       : aNND,     - nearest neighbor space-time magnitude distance
-         'aEqID_p'    : np.array  - ID of the parent event
-         'aEqID_c'    : np.array  - ID of the child  event
-         'Time'       : np.array  - origin time of offspring
+    - {  'aNND'       : aNND,     - расстояние до ближайшего соседа в пространственно-временном-магнитудном домене
+         'aEqID_p'    : np.array  - ID родительского события
+         'aEqID_c'    : np.array  - ID дочернего события
+         'Time'       : np.array  - время возникновения дочерних событий
         } 
 
-    see: Clustering Analysis of Seismicity and Aftershock Identification, Zaliapin, I. (2008)
-
+    См.: Clustering Analysis of Seismicity and Aftershock Identification, Zaliapin, I. (2008)
     """
     #-------------------------------set args and kwargs----------------------------------------------- 
-    rmax = 500 # in km
-    tmax = 20 # in years
-    M0 = 0 # reference mag
+    rmax = 500 # в километрах
+    tmax = 20 # в годах
+    M0 = 0 # опорная магнитуда
     if 'M0' in kwargs.keys() and kwargs['M0'] is not None:
         M0 = kwargs['M0']
     if 'rmax' in kwargs.keys() and kwargs['rmax'] is not None:
@@ -66,11 +60,11 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
     aNND     = np.zeros( eqCat.size())
     vID_p    = np.zeros( eqCat.size())
     vID_c    = np.zeros( eqCat.size())
-    a_M_MS_ref= (eqCat.data['Mag'] - M0)# mainshock mag with respect to reference
+    a_M_MS_ref= (eqCat.data['Mag'] - M0)# магнитуда главного толчка относительно опорной
  
     for jC in range( eqCat.size()):
         if verbose == True:
-            print( f"event {jC+1:d} of {eqCat.size():d}", end= "\r")
+            print( f"Событие {jC+1:d} из {eqCat.size():d}", end= "\r")
         # interevent times: take events that happend before t_i 
         #           child             - parent                > 0 
         tau         =  eqCat.data['Time'][jC] - eqCat.data['Time']
@@ -82,7 +76,7 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
             if 'X' in eqCat.data.keys() and 'Y' in eqCat.data.keys():
                 vR = np.sqrt( (eqCat.data['X'][jC] - eqCat.data['X'][vcurr_ID])**2 + (eqCat.data['Y'][jC] - eqCat.data['Y'][vcurr_ID])**2 )
             else:
-                #  haversine distance
+                # расстояние по формуле гаверсинуса
                 vR = haversine( eqCat.data['Lon'][jC], eqCat.data['Lat'][jC],eqCat.data['Lon'][vcurr_ID], eqCat.data['Lat'][vcurr_ID] )
             sel_r_par = vR < rmax
             if sel_r_par.sum() > 0:
@@ -92,8 +86,8 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
                 aNND[jC]    = curr_Eta[sel_min][0]
                 vID_p[jC]   = eqCat.data['N'][vcurr_ID][sel_min][0]
                 vID_c[jC]   = eqCat.data['N'][jC]
-                #print( 'parent', eqCat.data['N'][vcurr_ID][sel_min][0],  'offspring', eqCat.data['N'][jC]
-                #print( 'parent', eqCat.data['Time'][vcurr_ID][sel_min][0],  'offspring', eqCat.data['Time'][jC]
+                #print( 'родитель', eqCat.data['N'][vcurr_ID][sel_min][0],  'потомок', eqCat.data['N'][jC]
+                #print( 'родитель', eqCat.data['Time'][vcurr_ID][sel_min][0],  'потомок', eqCat.data['Time'][jC]
 
                 if sel_min.sum() > 1:
                     print( aNND[jC], curr_Eta[sel_min], eqCat.data['N'][vcurr_ID][sel_min])
@@ -101,46 +95,45 @@ def NND_eta( eqCat, dConst, verbose = False, **kwargs):
     sel2 = aNND > 0
     if np.logical_not(sel2).sum() > 0:
         pass
-        # print( f"{np.logical_not(sel2).sum()} %i events with NND=0 ")
+        # print( f"{np.logical_not(sel2).sum()} %i событий с NND=0 ")
         #raise ValueError, error_str
-    #  remove events with aNND < 0; i.e. event at the beginning with no preceding parent
+    # удаляем события с aNND < 0, т.е. события в начале без предшествующего родителя
     return {  'aNND' : aNND[sel2], 'aEqID_p' : vID_p[sel2], 'aEqID_c' : vID_c[sel2], 'Time' : eqCat.data['Time'][sel2]}
     #return {  'aNND' : aNND, 'aEqID_p' : vID_p, 'aEqID_c' : vID_c, 'Time' : eqCat.data['Time'][1::]}
 
 
 def rFromTau( dt, b, D, eta_0, M_MS ):
     """
-        - compute maximum distance R for events in cluster
-          based on interevent time, eta_0 and D (fractal dimension)
-    :INPUT
-          dt    - array or float
-               interevent times (dt relative to MS or first event in family)
-          b     - Gutenberg-Richter b-value
-          D     - fractal dimension, usually D~1.6
-          eta_0 - empiricallly determined separation line between clustered and background
-                  mode
-          M_MS  - mainshock magnitude (here we assume only one triggering generation)
-    :return:
+        - Вычисление максимального расстояния R для событий в кластере
+          на основе межсобытийного времени, eta_0 и фрактальной размерности D
+    :Входные данные
+          dt    - массив или число
+               межсобытийные времена (dt относительно главного толчка или первого события в кластере)
+          b     - b-значение по Гутенбергу-Рихтеру
+          D     - фрактальная размерность, обычно D~1.6
+          eta_0 - эмпирически определённая линия разделения между кластерным и фоновым режимами
+          M_MS  - магнитуда главного толчка (здесь предполагается только одна триггерная генерация)
+    :Возвращает:
+          расстояние R
     """
     return ( -eta_0/dt * 10**( b*M_MS))**(1/D)*1e-3
 
 def rescaled_t_r(catChild, catPar, dConst, **kwargs):
     """
-    - compute rescaled time and distance
+    - Вычисление масштабированного времени и расстояния
 
-    Parameters
+    Параметры
     ----------
-    catChild, catPar - objects of type SeisCatDic containing parent and child events
-    dConst      =  'b', 'D' -  b-value, fractal dimension
-    kwargs       = distance_3D = True default : False i.e. 2D Euclidean distance
+    catChild, catPar - объекты типа SeisCatDic, содержащие родительские и дочерние события
+    dConst      =  'b', 'D' -  b-значение, фрактальная размерность
+    kwargs       = distance_3D = True по умолчанию: False, т.е. 2D евклидово расстояние
 
-    Returns
+    Возвращает
     -------
     - a_R, a_tau
 
 
-    see: Clustering Analysis of Seismicity and Aftershock Identification, Zaliapin, I. (2008)
-
+    См.: Clustering Analysis of Seismicity and Aftershock Identification, Zaliapin, I. (2008)
     """
     #-------------------------------set args and kwargs-----------------------------------------------
     M0 = 0
@@ -162,252 +155,250 @@ def rescaled_t_r(catChild, catPar, dConst, **kwargs):
         a_R = haversine(catChild.data['Lon'], catChild.data['Lat'],
                    catPar.data['Lon'],   catPar.data['Lat'])**dConst['D']*vMagCorr
 
-    a_dt = catChild.data['Time']-catPar.data['Time']#interevent times
+    a_dt = catChild.data['Time']-catPar.data['Time']#межсобытийные времена
     a_tau = (a_dt)*vMagCorr
     sel2 = a_tau < 0
     if sel2.sum() > 0:
         #print( catChild.data['N'][sel2])
         #print( catPar.data['N'][sel2])
-        error_str = '%i parents occurred after offspring, check order of origin time in catChild, catPar'%(sel2.sum())
+        error_str = '%i родительских событий произошли после дочерних, проверьте порядок времени в catChild, catPar'%(sel2.sum())
         raise( ValueError( error_str))
     return a_R, a_tau
 
 
 def compileClust( dNND, simThreshold, verbose = True,  **kwargs):
     """
-    assuming parent and off-spring is connected via unique measurement (e.g. nearest-neighbor distance)
-    - create clusters of event pairs based on some similarity criteria
-            e.g. a) based on cross-correlation coefficients between pairs
-                 b) based on space-time-magnitude distance
-    - main input are pairs of connected events separated in parent and offspring
-                  (one parent can have many children, but child has only one parent)
-    1) find initial singles beyond threshold
-    2) find pairs below threshold and assemble clusters
-        - take all event pairs with values below (eta_0) or above (CCC),
-           --> pairs beyond the threshold do not have to be considered
-            if offspring meets similarity criteria:
-                - go through each pair and find cluster for child event by searching if the
-                  corresponding ID is already in any of the previous clusters
-                -  attach to existing cluster or create new cluster
-    3) - check if several offspring are connected to same parent and if 
-         different clusters have to be combined in case of ID repetition
-         --> this is implemented as a while loop
-    4) - remove potential multiple IDs from clusters
+    Предполагается, что родитель и потомок связаны уникальным измерением (например, расстоянием до ближайшего соседа)
+    - Создание кластеров пар событий на основе критерия схожести
+            например: a) на основе коэффициентов кросс-корреляции между парами
+                     b) на основе пространственно-временного-магнитудного расстояния
+    - Основной вход: пары связанных событий, разделённые на родительские и дочерние
+                  (один родитель может иметь много потомков, но у потомка только один родитель)
+    1) Найти одиночные события за пределами порога
+    2) Найти пары ниже порога и собрать кластеры
+        - Взять все пары событий с значениями ниже (eta_0) или выше (CCC),
+           --> пары за пределами порога не рассматриваются
+            если потомок удовлетворяет критерию схожести:
+                - пройти по каждой паре и найти кластер для дочернего события, проверяя,
+                  есть ли соответствующий ID в предыдущих кластерах
+                - присоединить к существующему кластеру или создать новый
+    3) - Проверить, связаны ли несколько потомков с одним родителем, и объединить кластеры
+         при повторении ID
+         --> реализовано как цикл while
+    4) - Удалить возможные множественные ID из кластеров
 
-    :Input    - simThreshold = similarity parameter
-              - vID_parent   - event IDs
+    :Входные данные    - simThreshold = параметр схожести
+              - vID_parent   - ID событий
               - vID_child
-              - vSimValues   - all similarity values
+              - vSimValues   - все значения схожести
               kwargs['useLargerEvents'] = False, 
 
-    :Return  dClust - python dictionary that contains all clusters labeled numerically
-                     from '0' - not clustered
-                          '1' - '[nCLmax]' - clustered events
-                      each dictionary column contains IDs of children [first row] and parents [second row]
+    :Возвращает  dClust - словарь Python, содержащий все кластеры, пронумерованные
+                     от '0' - не кластеризованные
+                          '1' - '[nCLmax]' - кластеризованные события
+                      каждая колонка словаря содержит ID дочерних [первая строка] и родительских [вторая строка] событий
     """
     # dNND = { 'aEqID_c' : vID_child,
     #          'aEqID_p' : vID_parent,
     #          'aNND'    : vSim}
-    # remove identical parents and off-spring if eq is in catalog several times
+    # удаляем одинаковых родителей и потомков, если событие встречается в каталоге несколько раз
     sel = abs(dNND['aEqID_c']-dNND['aEqID_p']) > 0
     dNND= data_utils.selDicAll(dNND, sel)
 
-    # check that dNND is sorted by time
+    # проверяем, что dNND отсортирован по времени
     if 'Time' in dNND.keys():
         i_sort = np.argsort( dNND['Time'])
         dNND   = data_utils.selDicAll(dNND, i_sort)
     else:
-        error_str = "'Time' key missing, add offspring origin time to dNND"
+        error_str = "Отсутствует ключ 'Time', добавьте время возникновения дочерних событий в dNND"
         raise ValueError( error_str)
     #==================================1=============================================
-    #                  initial  selection of events beyond threshold (single event)
+    #                  начальная выборка событий за пределами порога (одиночные события)
     #================================================================================
-    ### events without trigger
+    ### события без триггера
     if 'useLargerEvents' in kwargs.keys() and kwargs['useLargerEvents'] == True:
-        print( 'assuming threshold (%s) is a MINIMUM, select similarity values ABOVE this threshold'%( simThreshold))
+        print( 'Предполагается, что порог (%s) — это МИНИМУМ, выбираем значения схожести ВЫШЕ этого порога'%( simThreshold))
         sel_single     = dNND['aNND'] <= simThreshold
-        # remove independent events
+        # удаляем независимые события
         dNND_trig = data_utils.selectDataRange( dNND, simThreshold, None, 'aNND')
     else:
-        print( 'assuming threshold (%s) is a MAXIMUM, select similarity values BELOW this threshold'%( simThreshold))
+        print( 'Предполагается, что порог (%s) — это МАКСИМУМ, выбираем значения схожести НИЖЕ этого порога'%( simThreshold))
         sel_single     = dNND['aNND'] >= simThreshold
-        # remove independent events
+        # удаляем независимые события
         dNND_trig = data_utils.selDicAll( dNND, np.logical_not( sel_single))
-    # preliminary single selection with eta > eta_0, may contain cluster events
-    vID_single  = dNND['aEqID_c'][sel_single] # could be singles or parents but not offspring
+    # предварительная выборка одиночных событий с eta > eta_0, может содержать кластерные события
+    vID_single  = dNND['aEqID_c'][sel_single] # могут быть одиночными или родительскими, но не дочерними
     sel_first = np.in1d( dNND['aEqID_p'][0], vID_single)
     if dNND['aNND'][0] > simThreshold and sel_first.sum() == 0:
         vID_single = np.append(  dNND['aEqID_p'][0], vID_single)
 
     if verbose == True:
-        print( f"---------compileClust - initial numbers:------")
-        print(  f"No. singles: {vID_single.shape[0]}"),
-        print(  f"No. triggered: {dNND_trig['aEqID_c'].shape[0]}, {dNND_trig['aEqID_p'].shape[0]},"
-                f"No. tot. {dNND_trig['aEqID_p'].shape[0]} {sel_single.sum()+dNND_trig['aEqID_c'].shape[0]}")
+        print( f"---------compileClust - начальные числа:------")
+        print(  f"Количество одиночных: {vID_single.shape[0]}"),
+        print(  f"Количество триггерных: {dNND_trig['aEqID_c'].shape[0]}, {dNND_trig['aEqID_p'].shape[0]},"
+                f"Общее количество: {dNND_trig['aEqID_p'].shape[0]} {sel_single.sum()+dNND_trig['aEqID_c'].shape[0]}")
     #==================================2=============================================
-    #                      find clustered events
+    #                      поиск кластеризованных событий
     #================================================================================
-    # initiate vectors and dic during first run
+    # инициализация векторов и словаря при первом запуске
     curr_child_ID     = dNND_trig['aEqID_c'][0]
     curr_par_ID       = dNND_trig['aEqID_p'][0]
     v_pastEqIDs = np.array(  [curr_child_ID, curr_par_ID] )
     v_pastClIDs = np.array(  [1, 1] )
-    # dClust['0'] = singles
+    # dClust['0'] = одиночные
     dClust = {  '1'     : np.array( [[curr_child_ID],
                                      [curr_par_ID  ] ])}
-    # for each child find the corresponding parent ID
-    # if child or parent ID are already part of a cluster append to this cluster
+    # для каждого дочернего события найти соответствующий ID родителя
+    # если ID дочернего или родительского события уже есть в кластере, добавить к этому кластеру
     nCl = 2
     for iEv in range(1, dNND_trig['aEqID_p'].shape[0]):
-        #print( 'nPair', iEv+1, 'out of', len( dNND_trig['aEqID_p']), 'iCl', nCl
+        #print( 'nPair', iEv+1, 'из', len( dNND_trig['aEqID_p']), 'iCl', nCl
         curr_child_ID     = dNND_trig['aEqID_c'][iEv]
         curr_par_ID       = dNND_trig['aEqID_p'][iEv]
-        # check if parent or child are part of previous cluster
+        # проверяем, есть ли родитель или потомок в предыдущем кластере
         sel_child = curr_child_ID == v_pastEqIDs
         sel_par   = curr_par_ID   == v_pastEqIDs
 
         if sel_par.sum() > 0 or sel_child.sum() > 0:
-            # find which cluster event pair belongs to
-            if sel_par.sum() and sel_child.sum(): # both already part of a cluster
+            # определяем, к какому кластеру относится пара событий
+            if sel_par.sum() and sel_child.sum(): # оба уже в кластере
                 curr_cl_ID1 = v_pastClIDs[sel_par][0]
                 curr_cl_ID2 = v_pastClIDs[sel_child][0]
-                # merge clusters and add IDs
+                # объединяем кластеры и добавляем ID
                 dClust[str(curr_cl_ID1)] =    np.hstack( (dClust[str(curr_cl_ID1)],
                                                              np.array([[curr_child_ID], [curr_par_ID  ] ])
                                                              ))
                 dClust[str(curr_cl_ID1)] = np.hstack( (dClust[str(curr_cl_ID1)], dClust[str(curr_cl_ID2)]))
-                # add new events but previous cluster ID
+                # добавляем новые события, но сохраняем предыдущий ID кластера
                 v_pastEqIDs = np.append(  v_pastEqIDs, np.array([curr_child_ID, curr_par_ID] ) )
                 v_pastClIDs = np.append(  v_pastClIDs, np.array([   curr_cl_ID1, curr_cl_ID1] ) )
-                # remove second cluster ID from dClust
+                # удаляем второй ID кластера из dClust
                 dClust.pop( str(curr_cl_ID2))
-                # remove from past eq IDs and past cl IDs
+                # удаляем из предыдущих ID событий и ID кластеров
                 sel = curr_cl_ID2 != v_pastClIDs
                 v_pastEqIDs = v_pastEqIDs[sel]
                 v_pastClIDs = v_pastClIDs[sel]
-            else: # only one is part of a cluster
-                if sel_par.sum() > 0: # parent already part of a cluster
+            else: # только один в кластере
+                if sel_par.sum() > 0: # родитель уже в кластере
                     curr_cl_ID = v_pastClIDs[sel_par][0]
-                else:# child already part of a cluster
+                else:# потомок уже в кластере
                     curr_cl_ID = v_pastClIDs[sel_child][0]
                 dClust[str(curr_cl_ID)] =    np.hstack( (dClust[str(curr_cl_ID)],
                                                              np.array([[curr_child_ID], [curr_par_ID  ] ])
                                                              ))
                 v_pastEqIDs = np.append(  v_pastEqIDs, np.array([curr_child_ID, curr_par_ID] ) )
                 v_pastClIDs = np.append(  v_pastClIDs, np.array([   curr_cl_ID, curr_cl_ID        ] ) )
-        else: # start a new cluster
+        else: # начинаем новый кластер
             dClust[str(nCl)] =    np.array( [[curr_child_ID],
                                              [curr_par_ID  ] ])
             v_pastEqIDs = np.append(  v_pastEqIDs, np.array([curr_child_ID, curr_par_ID] ) )
             v_pastClIDs = np.append(  v_pastClIDs, np.array([          nCl, nCl        ] ) )
             nCl += 1
-    # check if children have same parent
+    # проверяем, есть ли у потомков один и тот же родитель
     nTotChild = 0
     #=================================3==========================================================================
-    #                 remove events from singles if in cluster, remove multiple IDs
+    #                 удаляем события из одиночных, если они в кластере, удаляем множественные ID
     #============================================================================================================
-    # create vector of triggered eqIDs and count triggered events
+    # создаём вектор ID триггерных событий и подсчитываем их количество
     vID_Trig_all = np.array([])
     vclID_allEv  = np.array([], dtype = int)
     for tag in sorted( dClust.keys()):
-        #print( 'iCl', tag, 'nEv in cluster', np.unique( dClust[tag].flatten()).shape[0]
+        #print( 'iCl', tag, 'количество событий в кластере', np.unique( dClust[tag].flatten()).shape[0]
         #print( dClust[tag][0]
         aID_flat_uni = np.unique( dClust[tag].flatten())
         #nTotTrig   += aID_flat_uni.shape[0]
         vID_Trig_all = np.append( vID_Trig_all, aID_flat_uni )
         vclID_allEv  = np.append( vclID_allEv, np.ones( aID_flat_uni.shape[0], dtype = int)*int(tag))
-        # remove multiple ID entries --> possible since pairs are always appeneded
+        # удаляем множественные записи ID --> возможно, так как пары всегда добавляются
         dClust[tag] = aID_flat_uni
         nTotChild  += dClust[tag].shape[0]-1
     #====================================4========================================================================
-    #                       check for events in more than one cluster, merge clusters
+    #                       проверяем события, находящиеся в нескольких кластерах, объединяем кластеры
     #============================================================================================================
     # sel_same = np.in1d( vID_Trig_all, np.array([ 3049419,  9020431,  9172305,  9173365, 15332137]))
-    # print( "events in trig_all before double remove: ", sel_same.sum(), vID_Trig_all[sel_same])
+    # print( "события в trig_all перед удалением дубликатов: ", sel_same.sum(), vID_Trig_all[sel_same])
     aIDs, aCounts = np.unique( vID_Trig_all, return_counts=True)
     selDouble = aCounts > 1
     if verbose == True:
-        print( f"N event IDs in more than one cluster: {selDouble.sum()}")
+        print( f"Количество ID событий в нескольких кластерах: {selDouble.sum()}")
     i_run = 1
     while selDouble.sum() > 0:
         if verbose == True:
-            print( '%i. run to remove doubles'%(i_run))
+            print( '%i. прогон для удаления дубликатов'%(i_run))
         for ID in np.unique( aIDs[selDouble]):
             selCl = ID == vID_Trig_all
             aClID = np.unique( vclID_allEv[selCl])
             for iCl in range( len( aClID)-1):
                 if verbose == True:
-                    print( 'iCl with same events', str( aClID[0]), str( aClID[iCl+1]), 'evID: ', int(ID))
-                #A# merge clusters that have same events
+                    print( 'Кластеры с одинаковыми событиями', str( aClID[0]), str( aClID[iCl+1]), 'evID: ', int(ID))
+                #A# объединяем кластеры с одинаковыми событиями
                 dClust[str(aClID[0])] = np.unique( np.hstack( (dClust[str(int( aClID[0]))], dClust[str( int(aClID[iCl+1]))])))
-                #B# remove cluster IDs from dictionary
+                #B# удаляем ID кластеров из словаря
                 dClust.pop( str( int( aClID[iCl+1])))
-            #C# remove double event and corresponding clID from:
+            #C# удаляем дублирующее событие и соответствующий clID из:
             # vID_Trig_all
             sel_rem = ID != vID_Trig_all
             vID_Trig_all = vID_Trig_all[sel_rem]
-            # and vclID_allEv
+            # и vclID_allEv
             vclID_allEv  = vclID_allEv[sel_rem]
-            # leave one  event with new clID, i.e. clId of first cluster that contains ID
+            # оставляем одно событие с новым clID, т.е. clID первого кластера, содержащего ID
             vclID_allEv  = np.append( vclID_allEv, aClID[0])
             vID_Trig_all = np.append( vID_Trig_all, ID)
         aIDs, aCounts = np.unique( vID_Trig_all, return_counts=True)
         selDouble = aCounts > 1
         i_run += 1
-    # find events within initial single selection (eta > eta_0)
-    # which are actually part of clustered events
+    # находим события в начальной выборке одиночных (eta > eta_0),
+    # которые на самом деле являются частью кластеризованных событий
     sel_single = np.ones( vID_single.shape[0], dtype = int) > 0
     iS = 0
     for ID_single in  vID_single:
         sel = ID_single == vID_Trig_all
-        if sel.sum() > 0: # remove this event from singles
+        if sel.sum() > 0: # удаляем это событие из одиночных
             sel_single[iS] = False
         iS += 1
     if verbose == True:
-        print("initial singles now parents - remove from dClust['0']: ",np.array([~sel_single]).sum())
+        print("Начальные одиночные события, ставшие родительскими - удаляем из dClust['0']: ",np.array([~sel_single]).sum())
 
     vID_single = vID_single[sel_single]
     if verbose == True:
-        print( "---------------final result--------------------------")
-        print(  f" Ntot in cluster: {len( vID_Trig_all)}, N-parent(=N-clust): {len(dClust.keys())},"
-            f"No. singles: {vID_single.shape[0]}, Ntot. offspring (includes doubles):  {nTotChild}")
-        print( "trig. fraction: ", round((len( vID_Trig_all)-len(dClust.keys()))/dNND['aNND'].shape[0],2), "frac.MS: ", round( len(dClust.keys())/dNND['aNND'].shape[0],2), "single: ", round((vID_single.shape[0]/dNND['aNND'].shape[0]),2))
-        print(  'Ntot in cat.', dNND['aNND'].shape[0]+1, 'N-trig + N-ind', len( vID_Trig_all)+vID_single.shape[0])
+        print( "---------------Итоговый результат--------------------------")
+        print(  f" Общее количество в кластерах: {len( vID_Trig_all)}, Количество родителей (=количество кластеров): {len(dClust.keys())},"
+            f"Количество одиночных: {vID_single.shape[0]}, Общее количество потомков (включая дубликаты):  {nTotChild}")
+        print( "Доля триггерных: ", round((len( vID_Trig_all)-len(dClust.keys()))/dNND['aNND'].shape[0],2), "Доля главных толчков: ", round( len(dClust.keys())/dNND['aNND'].shape[0],2), "Одиночные: ", round((vID_single.shape[0]/dNND['aNND'].shape[0]),2))
+        print(  'Общее количество в каталоге: ', dNND['aNND'].shape[0]+1, 'Триггерные + одиночные', len( vID_Trig_all)+vID_single.shape[0])
 
     dClust[str(0)] =  vID_single
     return dClust
 
 def addClID2cat( seisCat, dClust, test_plot = False, **kwargs):
     """
-    - add new column (i.e. dictionary tag='famID') for seisCat
-        that specifies which cluster each event belongs to
-    - !note that if offspring generation should be recorded run:
-      clustering.offspring_gen() first
-      and use output dictionary as input for this fct.
+    - Добавление нового столбца (т.е. тега словаря='famID') для seisCat,
+      который указывает, к какому кластеру относится каждое событие
+    - !Обратите внимание, что если нужно записать поколение потомков, сначала выполните:
+      clustering.offspring_gen() и используйте выходной словарь как вход для этой функции
 
-    :param dClust:  python dictionary
-                    each dic. element specified by key is a vector of evIDs
-                    or three row matrix with evID, iGen and average leaf depth
+    :param dClust:  словарь Python
+                    каждый элемент словаря, заданный ключом, — вектор ID событий
+                    или матрица из трёх строк с evID, iGen и средней глубиной листа
 
 
     :param seisCat:
-    :return: seisCat (with new tags:
-                        'famID' - record family links between events
-                        optional:
-                        (note that 'clID' is commonly used for waveform-based relocations)
-                        'iGen'  - record offspring generation within family)
-                        'LD'    - average lead depth for each cluster
-
+    :return: seisCat (с новыми тегами:
+                        'famID' - запись семейных связей между событиями
+                        опционально:
+                        (обратите внимание, что 'clID' обычно используется для релокации на основе волновых форм)
+                        'iGen'  - запись поколения потомков в семье
+                        'LD'    - средняя глубина листа для каждого кластера
     """
-    # sort original catalog to get ID of first event
+    # сортируем исходный каталог, чтобы получить ID первого события
     seisCat.sortCatalog( 'Time')
 
-    # first row is clusterID and second row event ID from catalog
+    # первая строка — ID кластера, вторая строка — ID события из каталога
     nRows  = 2
     b_add_iGen = False
     if len( dClust['0'].shape) > 1:
         b_add_iGen = True
-        # additional rows for trig. generation and average lead depth
+        # дополнительные строки для поколения триггера и средней глубины листа
         nRows = 4
     mClust = np.zeros([nRows, seisCat.size()])
     nGen = 0
@@ -417,51 +408,51 @@ def addClID2cat( seisCat, dClust, test_plot = False, **kwargs):
     for sCl in dClust.keys():
         iCl = int(sCl)
         # print( f"------iCl: {iCl}, nEv: {nEv}--------, evID={dClust[sCl]}")
-        #earthquake event IDs
+        # ID событий землетрясений
         if b_add_iGen == False:
             nEv = dClust[sCl].shape[0]
             mClust[1, i:i + nEv] = dClust[sCl]
         else:
             nEv = dClust[sCl].shape[1]
             mClust[1, i:i + nEv] = dClust[sCl][0]
-        # family IDS
+        # ID семей
         mClust[0,i:i+nEv] = np.ones(nEv)*iCl
         nFam += len( dClust[sCl])
         if b_add_iGen == True:
             nGen += len( dClust[sCl][1])
-            # trig generation
+            # поколение триггера
             mClust[2,i:i+nEv] = dClust[sCl][1]
-            # ave. lead depth
+            # средняя глубина листа
             mClust[3, i:i + nEv] = dClust[sCl][2]
         i += nEv
-    #---------include first event in catalog as single-------------
+    #---------включаем первое событие в каталоге как одиночное-------------
     selFirst = seisCat.data['N'][0] == mClust[1]
     if selFirst.sum() == 0:
         ID_first = int( seisCat.data['N'][0]) #[~selUni][0])
-        print( 'first ev. in catalog -ID:', ID_first, int( seisCat.data['N'][0]), 'last ev. in mClust', mClust[1,-1], 'should=0')
-        mClust[1] = np.hstack( (ID_first, mClust[1,0:-1]))# not needed if catalog is sorted by Time
+        print( 'Первое событие в каталоге - ID:', ID_first, int( seisCat.data['N'][0]), 'Последнее событие в mClust', mClust[1,-1], 'должно быть = 0')
+        mClust[1] = np.hstack( (ID_first, mClust[1,0:-1]))# не требуется, если каталог отсортирован по времени
     #sel_same = np.in1d( mClust[1], seisCat.data['N'])
-    # check that every event ID is represented only once
+    # проверяем, что каждый ID события представлен только один раз
     __, aID, aN_uni = np.unique( mClust[1], return_counts = True, return_index=True)
     sel = aN_uni > 1
     if sel.sum() > 0:
-        error_str = f"ev. ID represented more than once: {mClust[1][aID[sel]]}, 'N-repeats: ', {aN_uni[sel]}"
+        error_str = f"ID события представлен более одного раза: {mClust[1][aID[sel]]}, 'Количество повторов: ', {aN_uni[sel]}"
         raise ValueError( error_str)
-    #--sort both cluster ID matrix and cat with respect to IDs
+    #--сортируем матрицу ID кластеров и каталог относительно ID
     sortSel = mClust[1].argsort()
     mClust = mClust.T[sortSel].T
-    seisCat.sortCatalog('N') #--otherwise clIDs get assigned to wrong event
+    seisCat.sortCatalog('N') #--иначе clID будут назначены неверным событиям
 
     if test_plot == True:
         plt.figure()
         plt.subplot( 211)
         plt.plot( mClust[1], mClust[1]-seisCat.data['N'], 'ko')
-        plt.xlabel( 'Event ID in Clust')
-        plt.ylabel( 'Diff. Events IDs (0)')
+        plt.xlabel( 'ID события в кластере')
+        plt.ylabel( 'Разница ID событий (0)')
         plt.subplot( 212)
         plt.plot(mClust[1],  mClust[0], 'ko')
-        plt.xlabel('Event ID in Clust')
-        plt.ylabel('Cluster ID')
+        plt.xlabel('ID события в кластере')
+        plt.ylabel('ID кластера')
         #plt.plot( plt.gca().get_xlim(), plt.gca().get_xlim(), 'r--')
         plt.show()
 
@@ -473,87 +464,87 @@ def addClID2cat( seisCat, dClust, test_plot = False, **kwargs):
 
 def offspring_gen( dClust, dNND, f_eta_0, **kwargs):
     """
-    - trace back triggering chain chronologically and assign trig generation
-    - start with parent generation, then add end leafs
-            a) identify all parents within cluster
-            b) sort by time
-            c) assign the same iGen to offspring of the same parent (hierarchical)
-            compute average leaf depth:
-                <d> = 1/n sum( d_i) = ave. depth across end leafs
+    - Отслеживание цепочки триггеров хронологически и присвоение поколения триггера
+    - Начинаем с родительского поколения, затем добавляем конечные листья
+            a) определяем всех родителей в кластере
+            b) сортируем по времени
+            c) присваиваем одинаковое iGen потомкам одного родителя (иерархически)
+            Вычисляем среднюю глубину листа:
+                <d> = 1/n sum( d_i) = средняя глубина по конечным листам
     __________________________________
-    input:  seisCat   = object SeismicityCatalog
-                        used to get origin times of offspring events
+    Входные данные:  seisCat   = объект SeismicityCatalog
+                        используется для получения времени возникновения дочерних событий
             dNND =
-            'aEqID_c'  - unique event IDs of offspring
-            'aEqID_p ' - events IDs of parents, these are paired to a_ID_child so order matters
-                          parents can have many offspring, so repeats are possible here
-            'Time'     - offspring origin time from catalog, in case IDs are not chronological
+            'aEqID_c'  - уникальные ID дочерних событий
+            'aEqID_p ' - ID родительских событий, пары с a_ID_child, порядок важен
+                          родители могут иметь много потомков, поэтому повторы возможны
+            'Time'     - время возникновения дочерних событий из каталога, если ID не хронологические
 
             dClust - '[famID]' = np.array([ offSpringIDs])
     ----------------------------------
-    return:
-            dGen    - python dictionary
+    Возвращает:
+            dGen    - словарь Python
                     'famID' : np.array([3, N])
                     # dGen[famID][0] = evIDs
-                    # dGen[famID][1] = trig generation
-                    # dGen[famID][2] = ave. leaf depth
-                             - average lead depth (same number for entire cluster)
+                    # dGen[famID][1] = поколение триггера
+                    # dGen[famID][2] = средняя глубина листа
+                             - средняя глубина листа (одинаковое число для всего кластера)
     """
     #=========================1========================================
-    #            count generations of offspring events
+    #            подсчёт поколений дочерних событий
     #==================================================================
     dGen = {}
     l_famID = list( dClust.keys())
-    # singles are all 0 generation
+    # одиночные события — все 0 поколения
     dGen['0'] = np.zeros( (3, len( dClust['0'])))
-    # set ev IDs in new dic
+    # устанавливаем ID событий в новом словаре
     dGen['0'][0] = dClust['0']
 
-    # ave LD = 1
+    # средняя глубина листа = 1
     dGen['0'][2] = np.ones( len( dClust['0']))
 
-    # ignore singles below
+    # игнорируем одиночные события ниже
     l_famID.remove( '0')
     for famID in l_famID:
-        ###find ori. time for each child
+        ###находим время возникновения для каждого дочернего события
         sel_chi_t  = np.in1d(  dNND['aEqID_c'], dClust[famID])
-        # filter for parent - child NND < eta_0
+        # фильтруем для пар родитель-потомок с NND < eta_0
         sel_chi_t2 = dNND['aNND'][sel_chi_t] < f_eta_0
         curr_iPar  = dNND['aEqID_p'][sel_chi_t][sel_chi_t2]
         curr_iChi  = dNND['aEqID_c'][sel_chi_t][sel_chi_t2]
         curr_tChi  = dNND['Time'][np.in1d( dNND['aEqID_c'],curr_iChi)]
 
-        ##sort cluster IDs with respect to offspring time
+        ##сортируем ID кластеров относительно времени потомков
         sel_sort  = np.argsort( curr_tChi)
         first_ID  = curr_iChi[sel_sort][0]
 
-        # get unique parents and sort by time
+        # получаем уникальных родителей и сортируем по времени
         uni_curr_iPar = np.unique(curr_iPar)
         uni_par_times = curr_tChi[np.in1d(curr_iChi, uni_curr_iPar)]
         uni_curr_iPar = curr_iChi[np.in1d(curr_iChi, uni_curr_iPar)]
         sort_uni_par  = np.argsort( uni_par_times)
         uni_curr_iPar = uni_curr_iPar[sort_uni_par]
-        # check if parent of first pair needs to be added
+        # проверяем, нужно ли добавить родителя первой пары
         if np.isin( curr_iPar[0], uni_curr_iPar).sum() == 0:
             uni_curr_iPar = np.hstack(( curr_iPar[0], uni_curr_iPar))
-        # add end leafs (offspring that are not parents)
+        # добавляем конечные листья (потомков, которые не являются родителями)
         sel_endLeaf   = ~np.in1d(curr_iChi, curr_iPar)
         uni_curr_iPar = np.hstack((uni_curr_iPar, curr_iChi[sel_endLeaf]))
-        #----------initiate new vectors------------------------
+        #----------инициализируем новые векторы------------------------
         uni_iGen_pastPar = np.zeros( len(curr_tChi)+1)
         uni_id_pastPar   = np.zeros( len(curr_tChi)+1)
-        ## assign chronological triggering generation
+        ## присваиваем хронологическое поколение триггера
         curr_iGen        = np.zeros( len(curr_tChi)+1)
         iGen          = 0
         for iPar in range( len(uni_curr_iPar)):
-            # check if current parent is offspring of other parent
+            # проверяем, является ли текущий родитель потомком другого родителя
             pastPar = curr_iPar[uni_curr_iPar[iPar] == curr_iChi]
             if len( pastPar) > 0:
                 sel_pastPar = pastPar == uni_id_pastPar
             else:
                 sel_pastPar = np.array([False])
             if sel_pastPar.sum() > 0:
-                # add 1 to previous parent triggering generation
+                # добавляем 1 к поколению предыдущего родителя
                 curr_iGen[iPar]         = uni_iGen_pastPar[sel_pastPar][0]+1
                 uni_iGen_pastPar[iPar]  = uni_iGen_pastPar[sel_pastPar][0]+1
                 uni_id_pastPar[iPar]    = uni_curr_iPar[iPar]
@@ -561,14 +552,14 @@ def offspring_gen( dClust, dNND, f_eta_0, **kwargs):
                 curr_iGen[iPar]         = iGen
                 uni_iGen_pastPar[iPar]  = iGen
                 uni_id_pastPar[iPar]    = uni_curr_iPar[iPar]
-                iGen += 1  # assign new trig generation
-        # save evID, trigger generation in dictionary
+                iGen += 1  # присваиваем новое поколение триггера
+        # сохраняем ID события, поколение триггера в словаре
         dGen[famID]    = np.zeros( (3, len(uni_id_pastPar)))
 
         dGen[famID][0] = uni_id_pastPar
         dGen[famID][1] = curr_iGen
         # =========================3========================================
-        #             compute ave. leaf depth
+        #             вычисляем среднюю глубину листа
         # ==================================================================
         sel_endLeaf = ~np.in1d(curr_iChi, curr_iPar)
         dGen[famID][2] = np.ones( len(dClust[famID]))*curr_iGen[1::][sel_endLeaf].mean()
@@ -576,42 +567,42 @@ def offspring_gen( dClust, dNND, f_eta_0, **kwargs):
 
 def offspring_gen_test( dClust, dNND, f_eta_0, **kwargs):
     #=========================1========================================
-    #               add origin times from seisCat to dNND
+    #               добавляем время возникновения из seisCat в dNND
     #==================================================================
-    # sort  dNND and seisCat by offspring ID!!- seisCat.data['Time'] is added to dNND
+    # сортируем dNND и seisCat по ID потомков!!- seisCat.data['Time'] добавляется в dNND
     # sortSel = np.argsort( dNND['aEqID_c'])
     # for tag in list(dNND.keys()):
     #     dNND[tag] = dNND[tag][sortSel]
     # seisCat.sortCatalog('Time')
     # firstEvID = seisCat.data['N'][0]
     # seisCat.sortCatalog('N')
-    # # add offspring origin time to dNND
+    # # добавляем время возникновения потомков в dNND
     # sel = firstEvID == seisCat.data['N']
     # dNND['at_c'] = seisCat.data['Time'][~sel]
-    # check that dNND is sorted by time
+    # проверяем, что dNND отсортирован по времени
     # if 'Time' in dNND.keys():
     #     i_sort = np.argsort( dNND['Time'])
     #     dNND   = data_utils.selDicAll(dNND, i_sort)
     # else:
-    #     error_str = "'Time' key missing, add offspring origin time to dNND"
+    #     error_str = "Отсутствует ключ 'Time', добавьте время возникновения дочерних событий в dNND"
     #     raise ValueError( error_str)
     #=========================2========================================
-    #            count generations of offspring events
+    #            подсчёт поколений дочерних событий
     #==================================================================
     dGen = {}
     l_famID = list( dClust.keys())
-    # singles are all 0 generation
+    # одиночные события — все 0 поколения
     dGen['0'] = np.zeros( (3, len( dClust['0'])))
-    # set ev IDs in new dic
+    # устанавливаем ID событий в новом словаре
     dGen['0'][0] = dClust['0']
-    # ave LD = 1
+    # средняя глубина листа = 1
     dGen['0'][2] = np.ones( len( dClust['0']))
-    # ignore singles below
+    # игнорируем одиночные события ниже
     l_famID.remove( '0')
     for famID in l_famID:
-        ###find ori. time for each child
+        ###находим время возникновения для каждого дочернего события
         sel_chi_t  = np.in1d(  dNND['aEqID_c'], dClust[famID])
-        # filter for parent - child NND < eta_0
+        # фильтруем для пар родитель-потомок с NND < eta_0
         sel_chi_t2 = dNND['aNND'][sel_chi_t] < f_eta_0
         curr_iPar  = dNND['aEqID_p'][sel_chi_t][sel_chi_t2]
         curr_iChi  = dNND['aEqID_c'][sel_chi_t][sel_chi_t2]
@@ -620,44 +611,44 @@ def offspring_gen_test( dClust, dNND, f_eta_0, **kwargs):
         # for iP in range( len( curr_iChi)):
         #     curr_tChi[iP] = dNND['at_c'][dNND['aEqID_c']==curr_iChi[iP]]
 
-        ##sort cluster IDs with respect to offspring time
+        ##сортируем ID кластеров относительно времени потомков
         sel_sort  = np.argsort( curr_tChi)
 
         curr_tChi = curr_tChi[sel_sort]
         curr_iChi = curr_iChi[sel_sort]
         curr_iPar = curr_iPar[sel_sort]
 
-        # parent IDs have one less element than complete cluster (first event has no parent)
+        # ID родителей имеют на один элемент меньше, чем полный кластер (первое событие не имеет родителя)
         #sel_sort =  np.hstack((0, sel_sort+1))
-        # make sure dClust[famID] = dNND['aEqID_c']+
+        # убеждаемся, что dClust[famID] = dNND['aEqID_c']+
         firstID = dClust[famID][0]
 
         uni_curr_iPar = np.unique( curr_iPar)
-        # sort unique parents by time
+        # сортируем уникальных родителей по времени
         print( uni_curr_iPar)
         uni_par_times = curr_tChi[np.in1d(curr_iChi, uni_curr_iPar)]
         uni_curr_iPar = curr_iChi[np.in1d(curr_iChi, uni_curr_iPar)]
         sort_uni_par  = np.argsort( uni_par_times)
         uni_curr_iPar = uni_curr_iPar[sort_uni_par]
-        # check if parent of first pair needs to be added
+        # проверяем, нужно ли добавить родителя первой пары
         if np.isin( curr_iPar[0], uni_curr_iPar).sum() == 0:
             uni_curr_iPar = np.hstack(( curr_iPar[0], uni_curr_iPar))
-        # add end leafs (offspring that are not parents)
+        # добавляем конечные листья (потомков, которые не являются родителями)
         sel_endLeaf   = ~np.in1d(curr_iChi, curr_iPar)
         uni_curr_iPar = np.hstack((uni_curr_iPar, curr_iChi[sel_endLeaf]))
-        #----------initiate new vectors------------------------
+        #----------инициализируем новые векторы------------------------
         uni_iGen_pastPar = np.zeros( len(curr_tChi)+1)
         uni_id_pastPar   = np.zeros( len(curr_tChi)+1)
-        ## assign chronological triggering generation
+        ## присваиваем хронологическое поколение триггера
         curr_iGen        = np.zeros( len(curr_tChi)+1)
         iGen          = 0
         for iPar in range( len(uni_curr_iPar)):
-            # # assign trig gen starting from oldest parent
+            # # присваиваем поколение триггера, начиная с самого старого родителя
             # sel_hier_par = curr_iPar == uni_curr_iPar[iPar]
-            # # print("current parent: ", uni_curr_iPar[iPar], "offspring: ", curr_iChi[sel_hier_par])
-            # # print( "past parents", uni_id_pastPar)
-            # # print( "past parent iGen", uni_iGen_pastPar)
-            # check if current parent is offspring of other parent
+            # # print("текущий родитель: ", uni_curr_iPar[iPar], "потомки: ", curr_iChi[sel_hier_par])
+            # # print( "прошлые родители", uni_id_pastPar)
+            # # print( "поколение прошлых родителей", uni_iGen_pastPar)
+            # проверяем, является ли текущий родитель потомком другого родителя
             pastPar = curr_iPar[uni_curr_iPar[iPar] == curr_iChi]
             #print( uni_curr_iPar[iPar], pastPar, uni_id_pastPar)
             if len( pastPar) > 0:
@@ -665,71 +656,71 @@ def offspring_gen_test( dClust, dNND, f_eta_0, **kwargs):
             else:
                 sel_pastPar = np.array([False])
             if sel_pastPar.sum() > 0:
-                print(uni_curr_iPar[iPar], "past parent: ", pastPar, "trig gen: ", uni_iGen_pastPar[sel_pastPar][0]+1)
-                # add 1 to previous parent triggering generation
+                print(uni_curr_iPar[iPar], "прошлый родитель: ", pastPar, "поколение триггера: ", uni_iGen_pastPar[sel_pastPar][0]+1)
+                # добавляем 1 к поколению предыдущего родителя
                 curr_iGen[iPar]         = uni_iGen_pastPar[sel_pastPar][0]+1
                 uni_iGen_pastPar[iPar]  = uni_iGen_pastPar[sel_pastPar][0]+1
                 uni_id_pastPar[iPar]    = uni_curr_iPar[iPar]
             else:
-                print( "trig gen: ", iGen)
+                print( "поколение триггера: ", iGen)
                 curr_iGen[iPar]         = iGen
                 uni_iGen_pastPar[iPar]  = iGen
                 uni_id_pastPar[iPar]    = uni_curr_iPar[iPar]
-                iGen += 1  # assign new trig generation
+                iGen += 1  # присваиваем новое поколение триггера
 
         print( uni_id_pastPar)
         print( curr_iGen)
-        # save evID, trigger generation in dictionary
+        # сохраняем ID события, поколение триггера в словаре
         dGen[famID]    = np.zeros( (3, len(uni_id_pastPar)))
         dGen[famID][0] = uni_id_pastPar
         dGen[famID][1] = curr_iGen
         # =========================3========================================
-        #             compute ave. lead depth
+        #             вычисляем среднюю глубину листа
         # ==================================================================
-        # end leafs = events without offspring, curr_iPar is already < eta_0)
+        # конечные листья = события без потомков, curr_iPar уже < eta_0)
         #print( len( curr_iGen), len( curr_iChi), len( uni_curr_iPar))
         sel_endLeaf = ~np.in1d(curr_iChi, curr_iPar)
-        print( 'end leaf off. ID', curr_iChi[sel_endLeaf])
-        print( ' leaf depths ', curr_iGen[1::][sel_endLeaf])
-        print( 'mean leaf depth: ', curr_iGen[1::][sel_endLeaf].mean())
+        print( 'ID конечных потомков', curr_iChi[sel_endLeaf])
+        print( 'глубины листа ', curr_iGen[1::][sel_endLeaf])
+        print( 'средняя глубина листа: ', curr_iGen[1::][sel_endLeaf].mean())
         dGen[famID][2] = np.ones( len(dClust[famID]))*curr_iGen[1::][sel_endLeaf].mean()
-    # recall data structure:
-    # dGen[famID][0] = evIDs
-    # dGen[famID][1] = trig generation
-    # dGen[famID][2] = ave. leaf depth
+    # структура данных:
+    # dGen[famID][0] = ID событий
+    # dGen[famID][1] = поколение триггера
+    # dGen[famID][2] = средняя глубина листа
     return dGen
 #=================================================================================
-#                      create random catalogs
+#                      создание случайных каталогов
 #=================================================================================
-# create uniform times
+# создание равномерных времён
 def rand_rate_uni( N, tmin, tmax, **kwargs):
-    """  draw N random numbers out of a Poisson distribution defined by mu, between tmin and tmax,
+    """  Выборка N случайных чисел из пуассоновского распределения, заданного mu, между tmin и tmax,
 
-    kwargs: - random uniform variable between min and max
+    kwargs: - случайная равномерная переменная между min и max
 
-    return: vector of N origin times between tmin and tmax """
+    Возвращает: вектор из N времён возникновения между tmin и tmax """
     return np.random.uniform( tmin, tmax, size = N)
 
 
 # ------------------------------------------------------------------------------------------
 def haversine(lon1, lat1, lon2, lat2, **kwargs):
     """
-    haversine formula implementation
+    Реализация формулы гаверсинуса
     https://en.wikipedia.org/wiki/Great-circle_distance
-    great circle distance between two points
-    :input   lon1, lat1
+    Расстояние по большому кругу между двумя точками
+    :Входные данные   lon1, lat1
              lon2, lat2
 
-    		  gR - Earth radius (global variable)
-    :output  distance - great circle distance in kilometer
+    		  gR - радиус Земли (глобальная переменная)
+    :Выходные данные  расстояние - расстояние по большому кругу в километрах
     """
     i_radius = 6371
-    # convert to radians
+    # конвертируем в радианы
     lon1 = lon1 * np.pi / 180
     lon2 = lon2 * np.pi / 180
     lat1 = lat1 * np.pi / 180
     lat2 = lat2 * np.pi / 180
-    # haversine formula
+    # формула гаверсинуса
     dlon = lon2 - lon1
     dlat = lat2 - lat1
     a = np.sin(dlat / 2) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2) ** 2
@@ -738,31 +729,31 @@ def haversine(lon1, lat1, lon2, lat2, **kwargs):
     return distance
 
 # ==================================4==============================================================
-#                       T-R density plots
+#                       графики плотности T-R
 # =================================================================================================
 def plot_R_T( a_T, a_R, f_eta_0, **kwargs):
     """
-        - plot rescaled distance over rescaled time
-        Parameters:
-    dPar = {'binx': .1, 'biny': .1,  # used for density and gaussian smoothing
-            'sigma': None,  # if None: default = n**(-1./(d+4)),
+        - Построение графика масштабированного расстояния против масштабированного времени
+        Параметры:
+    dPar = {'binx': .1, 'biny': .1,  # используется для плотности и гауссова сглаживания
+            'sigma': None,  # если None: по умолчанию = n**(-1./(d+4)),
             'Tmin': -8, 'Tmax': 0,
             'Rmin': -5, 'Rmax': 3,
             'cmap': plt.cm.RdYlGn_r}
-    Use kwargs['dPar'] = python dictionary
-                        'binx', 'biny', etc. to overwrite
-                        defaults for specific or all parameters
+    Используйте kwargs['dPar'] = словарь Python
+                        'binx', 'biny' и т.д. для переписывания
+                        значений по умолчанию для конкретных или всех параметров
     :param kwargs:
-    :return: fig - figure handle - use fig.axes to get list of corresponding axes
+    :return: fig - дескриптор фигуры - используйте fig.axes для получения списка соответствующих осей
     """
-    dPar = {'binx': .1, 'biny': .1,  # used for density and gaussian smoothing
-            'sigma': None,  # if None: default = n**(-1./(d+4)),
+    dPar = {'binx': .1, 'biny': .1,  # используется для плотности и гауссова сглаживания
+            'sigma': None,  # если None: по умолчанию = n**(-1./(d+4)),
             'Tmin': -8, 'Tmax': 0,
             'Rmin': -5, 'Rmax': 3,
             'cmap': plt.cm.RdYlGn_r}
     if 'dPar' in kwargs.keys() and kwargs['dPar'] is not None:
         for tag in kwargs['dPar'].keys():
-            print( f"overwrite plot_R_T param: {tag}={kwargs['dPar'][tag]}")
+            print( f"Переписываем параметр plot_R_T: {tag}={kwargs['dPar'][tag]}")
             dPar[tag] = kwargs['dPar'][tag]
     a_Tbin = np.arange(dPar['Tmin'], dPar['Tmax'] + 2 * dPar['binx'], dPar['binx'])
     a_Rbin = np.arange(dPar['Rmin'], dPar['Rmax'] + 2 * dPar['biny'], dPar['biny'])
@@ -771,20 +762,20 @@ def plot_R_T( a_T, a_R, f_eta_0, **kwargs):
 
     fig = plt.figure( figsize=(7, 9))
     ax = plt.subplot(111)
-    ax.set_title('Nearest Neighbor Pairs in R-T')
+    ax.set_title('Пары ближайших соседей в R-T')
     # ------------------------------------------------------------------------------
     normZZ = ZZ * (dPar['binx'] * dPar['biny'] * len(a_R))
     plot1 = ax.pcolormesh(XX, YY, normZZ, cmap=dPar['cmap'])
     cbar = plt.colorbar(plot1, orientation='horizontal', shrink=.5, aspect=20, )
     # ax.plot(  np.log10( a_T), np.log10( a_R), 'wo', ms = 1.5, alpha = .2)
-    # plot eta_0 to divide clustered and background mode
+    # построение eta_0 для разделения кластерного и фонового режимов
     ax.plot([dPar['Tmin'], dPar['Tmax']], -np.array([dPar['Tmin'], dPar['Tmax']]) + f_eta_0, '-', lw=1.5, color='w')
     ax.plot([dPar['Tmin'], dPar['Tmax']], -np.array([dPar['Tmin'], dPar['Tmax']]) + f_eta_0, '--', lw=1.5, color='.5')
-    # -----------------------labels and legends-------------------------------------------------------
-    # cbar.set_label( 'Event Pair Density [#ev./dRdT]')
-    cbar.set_label('Number of Event Pairs', labelpad=-60)
-    ax.set_xlabel('Rescaled Time')
-    ax.set_ylabel('Rescaled Distance')
+    # -----------------------надписи и легенды-------------------------------------------------------
+    # cbar.set_label( 'Плотность пар событий [#событий/dRdT]')
+    cbar.set_label('Количество пар событий', labelpad=-60)
+    ax.set_xlabel('Масштабированное время')
+    ax.set_ylabel('Масштабированное расстояние')
     ax.set_xlim(dPar['Tmin'], dPar['Tmax'])
     ax.set_ylim(dPar['Rmin'], dPar['Rmax'])
     # fig.axes

@@ -1,2 +1,0 @@
-# MAG          N-AS          N-FS        MS-ID; note N_AS=0 highlights singles or FS only
-     7.100       542      1383        191731

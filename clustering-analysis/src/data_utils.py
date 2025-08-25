@@ -1,7 +1,4 @@
-#!usr/bin/python2.7
-# -*- coding: utf-8 -*-
 """
-
     helper functions for easier file handling (mainly ASCII)
     and data I/O, density estimates, 2D Gaussian smoothing etc.
 
