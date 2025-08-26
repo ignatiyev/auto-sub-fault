@@ -233,10 +233,10 @@ def compileClust( dNND, simThreshold, verbose = True,  **kwargs):
         vID_single = np.append(  dNND['aEqID_p'][0], vID_single)
 
     if verbose == True:
-        print( f"---------compileClust - начальные числа:------")
-        print(  f"Количество одиночных: {vID_single.shape[0]}"),
-        print(  f"Количество триггерных: {dNND_trig['aEqID_c'].shape[0]}, {dNND_trig['aEqID_p'].shape[0]},"
-                f"Общее количество: {dNND_trig['aEqID_p'].shape[0]} {sel_single.sum()+dNND_trig['aEqID_c'].shape[0]}")
+        print(f"---------compileClust - начальные числа:------")
+        print(f"Количество одиночных: {vID_single.shape[0]}"),
+        print(f"Количество триггерных: {dNND_trig['aEqID_c'].shape[0]}, {dNND_trig['aEqID_p'].shape[0]},"),
+        print(f"Общее количество: {dNND_trig['aEqID_p'].shape[0]} {sel_single.sum()+dNND_trig['aEqID_c'].shape[0]}")
     #==================================2=============================================
     #                      поиск кластеризованных событий
     #================================================================================
@@ -361,11 +361,13 @@ def compileClust( dNND, simThreshold, verbose = True,  **kwargs):
 
     vID_single = vID_single[sel_single]
     if verbose == True:
-        print( "---------------Итоговый результат--------------------------")
-        print(  f" Общее количество в кластерах: {len( vID_Trig_all)}, Количество родителей (=количество кластеров): {len(dClust.keys())},"
-            f"Количество одиночных: {vID_single.shape[0]}, Общее количество потомков (включая дубликаты):  {nTotChild}")
-        print( "Доля триггерных: ", round((len( vID_Trig_all)-len(dClust.keys()))/dNND['aNND'].shape[0],2), "Доля главных толчков: ", round( len(dClust.keys())/dNND['aNND'].shape[0],2), "Одиночные: ", round((vID_single.shape[0]/dNND['aNND'].shape[0]),2))
-        print(  'Общее количество в каталоге: ', dNND['aNND'].shape[0]+1, 'Триггерные + одиночные', len( vID_Trig_all)+vID_single.shape[0])
+        print("---------------Итоговый результат--------------------------")
+        print(f"Общее количество в кластерах: {len(vID_Trig_all)}"), 
+        print(f"Количество родителей (=количество кластеров): {len(dClust.keys())},"),
+        print(f"Количество одиночных: {vID_single.shape[0]}, Общее количество потомков (включая дубликаты):  {nTotChild}"),
+        print("Доля триггерных: ", round((len( vID_Trig_all)-len(dClust.keys()))/dNND['aNND'].shape[0],2), "Доля главных толчков: ", round( len(dClust.keys())/dNND['aNND'].shape[0],2), "Одиночные: ", round((vID_single.shape[0]/dNND['aNND'].shape[0]),2))
+        print('Общее количество в каталоге: ', dNND['aNND'].shape[0]+1), 
+        print(f"Триггерные + одиночные', len( vID_Trig_all)+vID_single.shape[0])")
 
     dClust[str(0)] =  vID_single
     return dClust
