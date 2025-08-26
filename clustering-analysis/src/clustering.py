@@ -367,7 +367,7 @@ def compileClust( dNND, simThreshold, verbose = True,  **kwargs):
         print(f"Количество одиночных: {vID_single.shape[0]}, Общее количество потомков (включая дубликаты):  {nTotChild}"),
         print("Доля триггерных: ", round((len( vID_Trig_all)-len(dClust.keys()))/dNND['aNND'].shape[0],2), "Доля главных толчков: ", round( len(dClust.keys())/dNND['aNND'].shape[0],2), "Одиночные: ", round((vID_single.shape[0]/dNND['aNND'].shape[0]),2))
         print('Общее количество в каталоге: ', dNND['aNND'].shape[0]+1), 
-        print(f"Триггерные + одиночные', len( vID_Trig_all)+vID_single.shape[0])")
+        print('Триггерные + одиночные', len(vID_Trig_all) + vID_single.shape[0])
 
     dClust[str(0)] =  vID_single
     return dClust
